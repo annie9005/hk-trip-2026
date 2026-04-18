@@ -470,6 +470,44 @@ body {
   margin-bottom: 6px;
 }
 .pudding-hero p { font-size: 13px; color: var(--text-soft); line-height: 1.6; }
+
+.pudding-profiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+  margin-top: 10px;
+}
+.pudding-profile-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+.pudding-profile-card .profile-header {
+  padding: 12px 16px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+}
+.pudding-profile-card.bakehouse .profile-header { background: #8D6E63; }
+.pudding-profile-card.hashtagb .profile-header { background: var(--gold); }
+.pudding-profile-card .profile-body {
+  padding: 16px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+.pudding-plan-title {
+  grid-column: 1 / -1;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 20px 0 10px;
+  padding-left: 4px;
+  color: var(--navy);
+  border-left: 4px solid var(--gold);
+}
 .pudding-plans {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -1619,18 +1657,33 @@ body {
   <div class="sec-sub">人氣蛋塔雙雄攻略 (Hashtag B / Bakehouse)</div>
 
   <div class="pudding-hero">
-    <h3>🍮 兩大必吃蛋塔全攻略</h3>
-    <p>來到香港絕對不能錯過這兩款「排隊王」旦塔！本攻略為你整理了 <strong>Hashtag B</strong> (雲朵塔) 與 <strong>Bakehouse</strong> (酸種塔) 的最強攻略，確保大家無論在哪一天都能輕鬆買到！</p>
+    <h3>🍮 兩大必吃蛋塔彙整</h3>
+    <p>來到香港絕對不能錯過這兩款「排隊王」蛋塔！本攻略為你整理了 <strong>Hashtag B</strong> (雲朵塔) 與 <strong>Bakehouse</strong> (酸種塔) 的最強攻略。</p>
   </div>
 
-  <div class="warn-box">
-    📍 <strong>Bakehouse 沙田店 (就在飯店旁！)：</strong><br>
-    ・地址：新城市廣場 3 期 1 樓 153-155 號舖 (Shop 153-155, L1, NTP 3)<br>
-    ・營業時間：08:00 – 21:00 (最推薦 Day 1 或 Day 4 直接購買)<br>
-    ・推薦：酸種蛋撻 (Sourdough Egg Tart)
+  <div class="pudding-profiles">
+    <div class="pudding-profile-card bakehouse">
+      <div class="profile-header">🥐 Bakehouse (飯店旁首選)</div>
+      <div class="profile-body">
+        📍 <strong>沙田店：</strong> 新城市廣場 3 期 1 樓 153-155 號舖<br>
+        ⏰ <strong>營業時間：</strong> 08:00 – 21:00<br>
+        ⭐ <strong>核心優點：</strong> 就在飯店樓下商場，隨時可買，不用跑遠
+      </div>
+    </div>
+    <div class="pudding-profile-card hashtagb">
+      <div class="profile-header">🍮 Hashtag B (視覺系王者)</div>
+      <div class="profile-body">
+        📍 <strong>地點：</strong> 尖沙咀 / 銅鑼灣分店 (需出發去市區)<br>
+        ⏰ <strong>備註：</strong> 雲朵外型極吸睛，但分店都在鬧區，適合搭配行程購買<br>
+        ⭐ <strong>核心優點：</strong> 視覺效果最強，送禮自用兩相宜
+      </div>
+    </div>
   </div>
+
+  <div class="info-box">💡 <strong>購買建議：</strong>想追求最方便就買 Bakehouse (下樓即達)；想蒐集最紅打卡款，請參考下方 Hashtag B 專屬三方案應對</div>
 
   <div class="pudding-plans">
+    <div class="pudding-plan-title">🎯 Hashtag B 專屬攻略方案</div>
     <div class="pudding-plan main">
       <div class="pudding-plan-badge">🍮 主方案（最推薦）</div>
       <h4>4/21 下午 — 尖沙咀路線順路購買</h4>
