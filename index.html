@@ -653,6 +653,111 @@ body {
 }
 .card-img-wrap:hover img { transform: scale(1.05); }
 
+/* ===== NAV BUTTONS (START NAV) ===== */
+.nav-go-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px 18px;
+  background: var(--navy);
+  color: #fff !important;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px var(--shadow);
+  border: none;
+  cursor: pointer;
+}
+.nav-go-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px var(--shadow);
+  background: var(--navy-mid);
+}
+.nav-go-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+/* ===== CONVERTER SECTION ===== */
+.converter-section {
+  padding: 80px 24px;
+  background: var(--warm-gray);
+  border-top: 1px solid var(--border);
+}
+.converter-card {
+  max-width: 440px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 30px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 40px var(--shadow);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+.converter-card h3 {
+  font-family: var(--font-title);
+  font-size: 26px;
+  margin-bottom: 24px;
+  color: var(--navy);
+}
+.converter-input-group {
+  position: relative;
+  margin-bottom: 24px;
+}
+.converter-input {
+  width: 100%;
+  padding: 18px 24px;
+  padding-right: 60px;
+  border-radius: 20px;
+  border: 2px solid var(--border);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+  background: var(--cream);
+  outline: none;
+  transition: all 0.2s;
+}
+.converter-input:focus { border-color: var(--gold); background: #fff; }
+.converter-unit {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 900;
+  font-size: 11px;
+  color: var(--text-soft);
+  letter-spacing: 1px;
+}
+.converter-arrow {
+  margin: 15px 0;
+  color: var(--gold);
+  display: flex;
+  justify-content: center;
+}
+.converter-result-box {
+  background: var(--navy);
+  border-radius: 24px;
+  padding: 24px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.converter-result-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  opacity: 0.6;
+}
+.converter-result-val {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--gold);
+  font-family: var(--font-mono);
+}
+
 /* ===== UTILS ===== */
 .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 @media (max-width: 600px) { .grid2 { grid-template-columns: 1fr; } }
@@ -794,6 +899,7 @@ body {
     <span class="hero-pill red">🇭🇰 香港</span>
     <span class="hero-pill gold">🎓 ICLT 研討會</span>
     <span class="hero-pill jade">🍮 美食圖鑑</span>
+    <span class="hero-pill outline" onclick="showSection('converter')">🧮 匯率轉換</span>
     <span class="hero-pill outline">🚌 A41 機場巴士</span>
     <span class="hero-pill outline">🚇 東鐵綫</span>
   </div>
@@ -809,6 +915,7 @@ body {
     <button class="nav-btn" onclick="showSection('day423')">4/23 回程</button>
     <button class="nav-btn" onclick="showSection('pudding')">🍮 美食圖鑑</button>
     <button class="nav-btn" onclick="showSection('teacher')">👨‍🏫 老師懶人包</button>
+    <button class="nav-btn" onclick="showSection('converter')">🧮 匯率轉換</button>
   </div>
 </nav>
 
@@ -844,6 +951,10 @@ body {
         <div class="tl-title">✈️ 抵達香港國際機場</div>
         <div class="tl-desc">通關、取行李，準備出發前往搭乘大巴</div>
         <div class="tl-tip red">📋 下機後檢查所需證件與八達通卡</div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=香港國際機場" target="_blank" class="nav-go-btn">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          開始導航
+        </a>
       </div>
     </div>
 
@@ -859,6 +970,10 @@ body {
           <span class="transport-arrow">➡️</span>
           <span class="transport-step">沙田市中心總站</span>
         </div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=沙田市中心巴士總站" target="_blank" class="nav-go-btn">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          開始導航
+        </a>
       </div>
     </div>
 
@@ -868,6 +983,10 @@ body {
         <div class="tl-time">13:30</div>
         <div class="tl-title">🏨 帝都酒店 (Royal Park Hotel) — 寄放行李</div>
         <div class="tl-desc">先將行李寄放在飯店櫃台，輕裝出發去逛逛</div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=帝都酒店" target="_blank" class="nav-go-btn">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          開始導航
+        </a>
       </div>
     </div>
 
@@ -884,6 +1003,10 @@ body {
           🛶 <strong>獨木舟探趣：</strong>開放時間 12:00-18:00，推薦體驗！<br>
           🛍️ <strong>備案：</strong>不想進公園的人，也可以在新城市廣場商場內自由逛街購物
         </div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=史努比開心世界" target="_blank" class="nav-go-btn">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          開始導航
+        </a>
         <div class="tl-tip gold">📍 就在飯店隔壁，步行 3 分鐘即達園區免費，獨木舟建議提早去排隊</div>
       </div>
     </div>
@@ -920,6 +1043,10 @@ body {
         <div class="tl-title">🍲 晚餐：二鍋頭 (Er Guo Tou)</div>
         <div class="tl-desc">沙田分店聚餐，火鍋吃到飽，大口吃肉補充體力！🍜</div>
         <div class="tl-tip red">⏰ 限時 120 分鐘吃到飽，盡情享受吧！</div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=二鍋頭沙田店" target="_blank" class="nav-go-btn">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          開始導航
+        </a>
       </div>
     </div>
 
@@ -1033,8 +1160,12 @@ body {
       <div class="tl-card teacher">
         <div class="tl-time">07:15 – 08:30</div>
         <div class="tl-title">☕ 早餐 — 紅茶冰室（沙田）<span class="v-tag v-teacher">老師同行</span></div>
+        <div class="tl-desc">地道港式冰室體驗。必點：港式奶茶、菠蘿油、炒蛋多士</div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=紅茶冰室沙田" target="_blank" class="nav-go-btn">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          開始導航
+        </a>
         <div class="tl-desc">
-          必點：🧋 港式奶茶、🍞 菠蘿油、🥚 炒蛋多士<br>
           用餐後前往地鐵站出發
         </div>
       </div>
@@ -1050,7 +1181,7 @@ body {
           <span class="transport-arrow">➡️</span>
           <span class="transport-step">東鐵綫</span>
           <span class="transport-arrow">➡️</span>
-          <span class="transport-step">大埔墟站/大埔墟站</span>
+          <span class="transport-step">大埔墟站</span>
           <span class="transport-arrow">➡️</span>
           <span class="transport-step">74K 巴士 / 校巴</span>
           <span class="transport-arrow">➡️</span>
@@ -1128,6 +1259,10 @@ body {
           <div class="tl-time">13:30 – 14:30</div>
           <div class="tl-title">🎨 香港文化中心 / 星光大道</div>
           <div class="tl-desc">欣賞維多利亞港景色，在星光大道拍照打卡，感受香港城市美景 🌆</div>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=星光大道" target="_blank" class="nav-go-btn">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            開始導航
+          </a>
         </div>
       </div>
       <div class="tl-item">
@@ -1136,6 +1271,10 @@ body {
           <div class="tl-time">14:30 – 16:00</div>
           <div class="tl-title">🏛️ 香港歷史博物館（免費入場）</div>
           <div class="tl-desc">了解香港歷史發展，常設展「香港故事」非常精彩，免費入場，適合下午悠閒參觀</div>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=香港歷史博物館" target="_blank" class="nav-go-btn">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            開始導航
+          </a>
         </div>
       </div>
       <div class="tl-item">
@@ -1144,6 +1283,10 @@ body {
           <div class="tl-time">16:00 – 17:00</div>
           <div class="tl-title">🍮 Hashtag B 蛋塔（備選時機）</div>
           <div class="tl-desc">若蛋塔攻略決定在今日執行，此時可前往尖沙咀附近分店購買</div>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Hashtag B 尖沙咀" target="_blank" class="nav-go-btn">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            開始導航
+          </a>
           <div class="tl-tip gold">詳細蛋塔攻略請見「🍮 蛋塔攻略」頁面</div>
         </div>
       </div>
@@ -1188,10 +1331,12 @@ body {
           <div class="tl-time">13:30 – 15:30</div>
           <div class="tl-title">🧵 深水埗 — 布料街 & 電子街</div>
           <div class="tl-desc">
-            📍 鴨寮街（電子零件、二手電器，非常特色）<br>
-            🧶 汝州街（布料、手作材料，超便宜）<br>
             🍢 沿路小食：砵仔糕、煎釀三寶、牛雜
           </div>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=深水埗鴨寮街" target="_blank" class="nav-go-btn">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            開始導航
+          </a>
         </div>
       </div>
       <div class="tl-item">
@@ -1200,10 +1345,12 @@ body {
           <div class="tl-time">15:30 – 17:00</div>
           <div class="tl-title">🍦 深水埗美食探店</div>
           <div class="tl-desc">
-            🥮 <strong>公和荳品廠</strong>（1895年老店，豆腐花必吃）<br>
-            🍢 <strong>好旺角燒味</strong>（叉燒、燒鵝飯）<br>
             🧋 深水埗奶茶老店（隨處可見地道冰室）
           </div>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=公和荳品廠" target="_blank" class="nav-go-btn">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            開始導航
+          </a>
         </div>
       </div>
       <div class="tl-item">
@@ -1215,6 +1362,10 @@ body {
             🍝 <strong>興記（桂林街）</strong>— 豬手麵超級出名<br>
             🌮 <strong>地道排檔</strong>— 體驗香港舊區飲食文化
           </div>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=深水埗興記" target="_blank" class="nav-go-btn">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            開始導航
+          </a>
         </div>
       </div>
       <div class="tl-item">
@@ -1246,10 +1397,12 @@ body {
           <div class="tl-time">13:30 – 15:30</div>
           <div class="tl-title">🛍️ 旺角掃街 — 女人街 & 波鞋街</div>
           <div class="tl-desc">
-            👟 波鞋街：球鞋控天堂，各品牌齊全<br>
-            👗 女人街：精品、小物、紀念品<br>
             🎮 旺角電腦中心：懷舊電玩、周邊商品
           </div>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=旺角波鞋街" target="_blank" class="nav-go-btn">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            開始導航
+          </a>
         </div>
       </div>
       <div class="tl-item">
@@ -1258,11 +1411,12 @@ body {
           <div class="tl-time">16:00 – 19:00</div>
           <div class="tl-title">🍢 旺角掃街美食</div>
           <div class="tl-desc">
-            🧇 <strong>雞蛋仔</strong>（街頭必吃）<br>
-            🥚 <strong>咖喱魚蛋</strong>（旺角街頭小食代表）<br>
-            🍵 <strong>澳門茶餐廳</strong>（葡式蛋撻、豬扒包）<br>
             🥩 <strong>麥奀記雲吞麵</strong>（正宗細蓉）
           </div>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=旺角隨意逛" target="_blank" class="nav-go-btn">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            開始導航
+          </a>
         </div>
       </div>
       <div class="tl-item">
@@ -1326,6 +1480,10 @@ body {
         <div class="tl-desc">
           📍 就在沙田站附近，享用完早餐後直接搭地鐵前往 EdUHK
         </div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=牛奶冰室沙田" target="_blank" class="nav-go-btn">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          開始導航
+        </a>
       </div>
     </div>
 
@@ -1345,6 +1503,10 @@ body {
           <span class="transport-arrow">➡️</span>
           <span class="transport-step">EdUHK 校園</span>
         </div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=香港教育大學" target="_blank" class="nav-go-btn">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          開始導航
+        </a>
         <div class="tl-tip">📍 大埔墟站出站後搭 74K 巴士前往 EdUHK，車程約 15 分鐘</div>
       </div>
     </div>
@@ -1389,6 +1551,10 @@ body {
         <div class="tl-desc">
           選擇 1 🏫：<strong>EdUHK 校園散步</strong>（環境清幽，適合拍照留念）<br>
           選擇 2 🚇：<strong>大埔墟逛逛</strong>（從大埔墟站出發，傳統市集＋特色老街）<br>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=大埔墟" target="_blank" class="nav-go-btn">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            開始導航
+          </a>
           選擇 3 🛍️：<strong>返回沙田，新城市廣場採購伴手禮</strong>
         </div>
         <div class="tl-tip jade">💡 晚上有晚宴，建議下午保留體力，不要走太遠</div>
@@ -1503,6 +1669,10 @@ body {
             🥐 推薦：新城市廣場附近茶餐廳，或飯店早餐<br>
             悠閒用餐，回顧這幾天的美好回憶！
           </div>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=新城市廣場" target="_blank" class="nav-go-btn">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            開始導航
+          </a>
         </div>
       </div>
       <div class="tl-item">
@@ -1525,6 +1695,10 @@ body {
             🛒 <strong>Bakehouse (沙田店)：</strong> 就在新城市廣場，回台灣前最後採買首選<br>
             🛒 <strong>Hashtag B：</strong> 若這幾天沒買到，今天早上可最後衝刺
           </div>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Bakehouse沙田" target="_blank" class="nav-go-btn">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            開始導航
+          </a>
           <div class="tl-tip jade">💡 蛋塔建議手提到飛機上，避免碰撞導致碎裂</div>
         </div>
       </div>
@@ -1566,6 +1740,10 @@ body {
         <div class="tl-card highlight">
           <div class="tl-time">15:45</div>
           <div class="tl-title">🚌 出發搭 Citybus A41 → 機場</div>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=沙田市中心巴士總站" target="_blank" class="nav-go-btn">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            開始導航
+          </a>
           <div class="tl-tip red">⚠️ 最晚 16:00 上車！建議 15:45 就到巴士站候車</div>
         </div>
       </div>
@@ -1955,6 +2133,37 @@ body {
 
 </section>
 
+<!-- ============================================================ -->
+<!-- 🧮 匯率轉換工具 -->
+<!-- ============================================================ -->
+<section class="section" id="converter">
+  <div class="sec-title">🧮 匯率轉換</div>
+  <div class="sec-sub">算帳小幫手 · 港幣 (HKD) 🔄 台幣 (TWD)</div>
+
+  <div class="converter-section">
+    <div class="converter-card">
+      <h3>💴 算帳小幫手 (1:4.15)</h3>
+      <div class="converter-input-group">
+        <input type="number" id="hkd-input" placeholder="請輸入港幣 HKD" class="converter-input" oninput="convertCurrency()">
+        <span class="converter-unit">HKD</span>
+      </div>
+      
+      <div class="converter-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m7 16 5 5 5-5"/><path d="m7 8 5-5 5 5"/></svg>
+      </div>
+
+      <div class="converter-result-box">
+        <div class="converter-result-label">換算台幣約</div>
+        <div class="converter-result-val">NT$ <span id="twd-result">0</span></div>
+      </div>
+      
+      <p style="font-size:11px; color:var(--text-soft); margin-top:20px; font-weight:500;">
+        💡 匯率預設為 1:4.15 (僅供參考)
+      </p>
+    </div>
+  </div>
+</section>
+
 <footer style="text-align:center;padding:40px 16px;color:var(--text-soft);font-size:13px;border-top:1px solid var(--border);margin-top:20px;">
   🇭🇰 香港研討會之旅 2026 · 4/20–4/23 · 一起加油！💪<br>
   <span style="font-family:var(--font-mono);font-size:11px;opacity:0.5;">Built with ❤️ for the research team</span>
@@ -1968,18 +2177,30 @@ function showSection(id) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   const targetSection = document.getElementById(id);
-  targetSection.classList.add('active');
-  const btns = document.querySelectorAll('.nav-btn');
-  const map = { day420:0, day421:1, day422:2, day423:3, pudding:4, teacher:5 };
-  const activeBtn = btns[map[id]];
-  activeBtn.classList.add('active');
+  if (targetSection) targetSection.classList.add('active');
   
-  // Scroll nav to center active item on mobile
-  const navInner = document.querySelector('.nav-inner');
-  const scrollPos = activeBtn.offsetLeft - (navInner.offsetWidth / 2) + (activeBtn.offsetWidth / 2);
-  navInner.scrollTo({ left: scrollPos, behavior: 'smooth' });
+  const btns = document.querySelectorAll('.nav-btn');
+  const map = { day420:0, day421:1, day422:2, day423:3, pudding:4, teacher:5, converter:6 };
+  const idx = map[id];
+  if (btns[idx]) {
+    btns[idx].classList.add('active');
+    // Scroll nav to center active item on mobile
+    const navInner = document.querySelector('.nav-inner');
+    const scrollPos = btns[idx].offsetLeft - (navInner.offsetWidth / 2) + (btns[idx].offsetWidth / 2);
+    navInner.scrollTo({ left: scrollPos, behavior: 'smooth' });
+  }
 
   window.scrollTo({ top: document.querySelector('.nav').offsetTop - 10, behavior: 'smooth' });
+}
+
+function convertCurrency() {
+  const hkd = document.getElementById('hkd-input').value;
+  const twdResult = document.getElementById('twd-result');
+  if (hkd) {
+    twdResult.innerText = Math.round(hkd * 4.15).toLocaleString();
+  } else {
+    twdResult.innerText = '0';
+  }
 }
 
 // Show/Hide Back to Top button

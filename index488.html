@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>🎨 2026 香港研討會之旅</title>
+    
+    <!-- 載入 Tailwind CSS & React 核心 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide-react@latest"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Quicksand:wght@500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --diary-bg: #F9F7F2;
+            --diary-pink: #FFB7C5;
+            --diary-blue: #AEC6CF;
+            --diary-navy: #3D405B;
+            --diary-yellow: #F4F1DE;
+            --diary-orange: #E07A5F;
+        }
+
+        body { 
+            font-family: 'Noto Sans TC', sans-serif; 
+            -webkit-tap-highlight-color: transparent; 
+            background-color: var(--diary-bg);
+            color: var(--diary-navy);
+        }
+
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* 手帳感卡片 */
+        .diary-card {
+            background: white;
+            border: 2.5px solid var(--diary-navy);
+            border-radius: 1.5rem;
+            box-shadow: 4px 4px 0px var(--diary-navy);
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* 標籤設計 */
+        .day-tag {
+            background: var(--diary-orange);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 999px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            border: 2px solid var(--diary-navy);
+        }
+
+        .diamond-bullet::before {
+            content: "✧";
+            color: var(--diary-pink);
+            font-weight: 900;
+            margin-right: 8px;
+        }
+
+        .time-line-connector {
+            width: 3px;
+            height: 15px;
+            background: var(--diary-navy);
+            margin-left: 2.5rem;
+            opacity: 0.2;
+        }
+
+        .teacher-must-tag {
+            background: #E8294A;
+            color: white;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            margin-left: 5px;
+        }
+        
+        @keyframes pop {
+            0% { transform: scale(0.98); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .animate-pop { animation: pop 0.4s ease-out forwards; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        
+        const SafeIcon = ({ name, size = 20, className = "", strokeWidth = 2.5 }) => {
+            const LucideLib = window.lucideReact || window.Lucide || {};
+            const IconComponent = LucideLib[name] || LucideLib[name.charAt(0).toUpperCase() + name.slice(1)];
+            if (!IconComponent) return null;
+            return <IconComponent size={size} className={className} strokeWidth={strokeWidth} />;
+        };
+
+        function App() {
+            const [activeTab, setActiveTab] = useState('itinerary');
+            const [activeDay, setActiveDay] = useState(0);
+            const [role, setRole] = useState('student');
+            const [hkd, setHkd] = useState('');
+            const [twd, setTwd] = useState('');
+
+            const itinerary = [
+                {
+                    date: "4/20", dayText: "DAY 1", 
+                    headerTitle: "抵達香港🇭🇰 安頓行李～輕鬆行程為明天做準備",
+                    summary: "12:05 抵達 · 寄放行李 · Snoopy's World · 晚餐二鍋頭",
+                    infoBox: "從香港機場搭乘 A41 機場大巴 (約 54 分鐘) 直達沙田市中心總站，下車後步行 5 分鐘即達飯店車資約 HK$23.4",
+                    events: [
+                        { id: "1-1", time: "12:05", title: "抵達香港國際機場", desc: "通關、取行李，準備出發前往搭乘大巴", tip: "📋 下機後檢查所需證件與八達通卡", map: "香港國際機場", teacher: "老師與師母抵達，助教接機。" },
+                        { id: "1-2", time: "12:30 – 13:25", title: "搭乘 A41 機場大巴", desc: "機場站 ➡️ A41 (預計 54 分鐘) ➡️ 沙田市中心總站", trans: "車資 HK$23.4", map: "沙田市中心巴士總站", teacher: "老師與師母搭乘專車前往飯店。" },
+                        { id: "1-3", time: "13:30", title: "帝都酒店 (Royal Park Hotel) — 寄放行李", desc: "先將行李寄放在飯店櫃台，輕裝出發去逛逛", map: "沙田帝都酒店", teacher: "老師與師母辦理行李寄放。" },
+                        { id: "1-4", time: "14:00 – 15:30", title: "史努比開心世界 (Snoopy's World)", desc: "新城市廣場 3 樓平台\n獨木舟探趣：12:00-18:00\n備案：不想進公園的人，也可以在新城市廣場商場內自由逛街購物", tip: "📍 飯店隔壁，步行 3 分鐘即達。園區免費。", map: "史努比開心世界", img: "https://meee.com.tw/RZu3fqP.jpg", teacher: "老師與師母在商場悠閒逛逛。" },
+                        { id: "1-5", time: "15:30", title: "返回酒店辦理 Check-in", desc: "正式入住、稍微休息並確認明日報告資料。\n🥐 午茶首選：旁邊 3 期的 Bakehouse 買蛋塔。", tip: "確認行李是否送達房間", map: "沙田帝都酒店", teacher: "正式入住行政客房。" },
+                        { id: "1-6", time: "17:15 – 17:30", title: "🚶 步行前往二鍋頭", desc: "沿著新城市廣場往好運中心方向走", trans: "步行時間約 11 分鐘", map: "沙田好運中心", teacher: "老師步行前往晚宴。" },
+                        { id: "1-7", time: "17:30", title: "晚餐：二鍋頭 (Er Guo Tou)", desc: "沙田分店聚餐，火鍋吃到飽，大口吃肉補充體力！", tip: "⏰ 限時 120 分鐘吃到飽", map: "沙田二鍋頭", teacher: "與師生共進晚餐。" }
+                    ]
+                },
+                {
+                    date: "4/21", dayText: "DAY 2", 
+                    headerTitle: "碩二生上場！下午解鎖自由模式 🔓",
+                    summary: "10:00–12:30 研討會報告 · 下午老師個人行程 · 學生自由行",
+                    warnBox: "👨‍🏫 老師會一起用早餐，請全體 07:00 在大廳集合，準時前往「紅茶冰室」",
+                    events: [
+                        { id: "2-1", time: "07:00", title: "🏨 大廳集合", desc: "全體在大廳集合，確認人員到齊後準時出發", map: "沙田帝都酒店", teacher: "準時在大廳與師生集合。" },
+                        { id: "2-2", time: "07:15 – 08:30", title: "早餐 — 紅茶冰室（沙田）", desc: "地道港式冰室體驗。必點：港式奶茶、菠蘿油、炒蛋多士", trans: "步行 5 分鐘", map: "紅茶冰室 沙田", teacher: "與學生共進港式早餐。" },
+                        { id: "2-3", time: "08:30 – 09:30", title: "前往 EdUHK 研討會", desc: "沙田站 ➡️ 東鐵綫 ➡️ 大埔墟站 ➡️ 74K 巴士 ➡️ 校園", map: "香港教育大學", teacher: "搭乘專車前往會場。" },
+                        { id: "2-4", time: "09:30 – 10:00", title: "🔧 設備確認", desc: "抵達會場，投影機、連線、PPT 最後確認", tip: "備份 USB 隨身碟", map: "香港教育大學", teacher: "視察發表場地環境。" },
+                        { id: "2-5", time: "10:00 – 12:30", title: "🎤 研討會報告 — 碩二同學發表", desc: "📌 正式報告時段，碩二全體發表。鎖定時段，不安排衝突行程。", map: "香港教育大學", teacher: "指導並全程出席報告發表。" },
+                        { id: "2-6", time: "12:30 – 13:30", title: "慶功午餐", desc: "推薦沙田大圍一帶。餐後分別行動。", tip: "👋 下午自由行開始", map: "新城市廣場", teacher: "午餐後開啟個人/師母行程。" },
+                        { id: "2-7", time: "13:30 ➡️ 晚上", title: "🔓 學生自由行", desc: "A. 尖沙咀散步 / B. 深水埗美食 / C. 旺角掃街", map: "尖沙咀星光大道", teacher: "老師下午為個人/師母行程時間。" }
+                    ]
+                },
+                {
+                    date: "4/22", dayText: "DAY 3", 
+                    headerTitle: "碩一生出擊！下午放鬆 + 研討會晚宴 🥂",
+                    summary: "前往 EdUHK · 12:00–13:00 碩一報告 · 晚宴 Bafang Zhan",
+                    warnBox: "🎫 出門前確認帶好研討會胸牌！晚宴接駁車需出示胸牌。",
+                    events: [
+                        { id: "3-1", time: "09:15", title: "🏨 大廳集合", desc: "全體在飯店大廳集合，準備出發享用早餐", map: "沙田帝都酒店", teacher: "準時在大廳集合。" },
+                        { id: "3-2", time: "09:30 – 10:30", title: "早餐 — 牛奶冰室（沙田）", desc: "就在沙田站附近，享用完後直接搭地鐵前往 EdUHK", map: "牛奶冰室 沙田", teacher: "與師生同行早餐。" },
+                        { id: "3-3", time: "10:30 – 11:30", title: "前往 ICLT 研討會 (EdUHK)", desc: "交通流程：東鐵綫至大埔墟站轉乘 74K 巴士", map: "香港教育大學", teacher: "前往研討會。" },
+                        { id: "3-4", time: "11:30 – 12:00", title: "🏗️ 場勘與準備", desc: "確認投影設備與簡報存檔", map: "香港教育大學", teacher: "預備報告指導。" },
+                        { id: "3-5", time: "12:00 – 13:00", title: "🎤 研討會發表 — 碩一發表", desc: "碩一正式發表時段。加油加油！💪", tip: "重要發表時段", map: "香港教育大學", teacher: "指導發表並評審。" },
+                        { id: "3-6", time: "12:45 – 14:00", title: "🍱 午餐 — 校園內", desc: "EdUHK 校內餐廳用餐，環境舒適", map: "香港教育大學", teacher: "師生同行午餐。" },
+                        { id: "3-7", time: "14:00 – 17:00", title: "下午放鬆行程", desc: "選 1: 校園散步 / 選 2: 大埔墟老街 / 選 3: 返回沙田補貨", map: "大埔墟", teacher: "下午自由活動或與師母個人行程。" },
+                        { id: "3-8", time: "18:30", title: "🚌 接駁巴士前往晚宴", desc: "上車前需出示胸牌。地點：八方棧 (Bafang Zhan)", tip: "⚠️ 沒胸牌無法進入", map: "八方棧", teacher: "晚宴不參與，自由安排。" }
+                    ]
+                },
+                {
+                    date: "4/23", dayText: "DAY 4", 
+                    headerTitle: "最後一天！輕鬆逛，準時回家 🏠",
+                    summary: "19:40 班機 · A41 安全搭車時間回推 · 輕鬆伴手禮行程",
+                    infoBox: "⏰ A41 建議 16:00 前上車！15:45 就到巴士站候車，15:30 從飯店出發。",
+                    events: [
+                        { id: "4-1", time: "07:50", title: "🏨 大廳集合", desc: "準備出發享用最後一頓香港早餐", map: "沙田帝都酒店", teacher: "師生全體集合。" },
+                        { id: "4-2", time: "08:00 – 09:00", title: "最後一頓早餐", desc: "新城市廣場附近茶餐廳，回顧回憶", map: "新城市廣場", teacher: "老師同行 (師母同行)。" },
+                        { id: "4-3", time: "09:30 – 11:30", title: "🏞️ 城門河畔散步", desc: "沙田公園環境優美，適合拍照留念", map: "沙田公園", teacher: "陪同師母散步遊覽。" },
+                        { id: "4-4", time: "11:30 – 12:30", title: "🍮 蛋塔最後採買", desc: "🛒 Bakehouse (沙田店) 下樓即達。Hashtag B 最後衝刺。", map: "Bakehouse 沙田", teacher: "領取代訂蛋塔。" },
+                        { id: "4-5", time: "12:30 – 14:00", title: "🍱 師生最後午餐", desc: "這趟旅程最後一頓正式午餐，好好珍惜！", map: "新城市廣場", teacher: "師生最後合餐。" },
+                        { id: "4-6", time: "15:45", title: "🚌 巴士站候車", desc: "最晚 16:00 要上 A41 巴士！超過有趕不上飛機風險。", map: "沙田市中心巴士總站", teacher: "同行前往機場。" },
+                        { id: "4-7", time: "19:40", title: "✈️ 起飛回台", desc: "結束之旅，期待明年見！長榮 BR872", map: "香港國際機場", teacher: "順利賦歸。" }
+                    ]
+                }
+            ];
+
+            const teacherGuide = [
+                { day: "DAY 1 · 4/20", title: "✈️ 抵達日", items: [
+                    { time: "12:05", label: "抵達香港", must: true },
+                    { time: "13:30", label: "飯店行李寄放 (Royal Park)", must: true },
+                    { time: "14:00", label: "史努比開心世界", must: true },
+                    { time: "15:30", label: "正式入住 Check-in", must: true },
+                    { time: "17:30", label: "師生晚餐：二鍋頭", must: true }
+                ]},
+                { day: "DAY 2 · 4/21", title: "🎤 碩二報告日", items: [
+                    { time: "07:00", label: "大廳集合", must: true },
+                    { time: "07:15", label: "早餐同行 (紅茶冰室)", must: true },
+                    { time: "08:30", label: "搭車前往 EdUHK", must: true },
+                    { time: "10:00", label: "研討會發表 (碩二報告)", must: true },
+                    { time: "12:10", label: "老師開始個人行程", must: false }
+                ]},
+                { day: "DAY 3 · 4/22", title: "🏫 碩一報告日", items: [
+                    { time: "09:15", label: "大廳集合", must: true },
+                    { time: "09:30", label: "早餐同行 (牛奶冰室)", must: true },
+                    { time: "10:30", label: "前往 EdUHK 同行", must: true },
+                    { time: "12:00", label: "碩一報告發表", must: true },
+                    { time: "12:45", label: "午餐同行", must: true }
+                ]},
+                { day: "DAY 4 · 4/23", title: "✈️ 回程日", items: [
+                    { time: "08:00", label: "早餐同行 (師母同行)", must: true },
+                    { time: "12:30", label: "師生最後午餐", must: true },
+                    { time: "15:45", label: "搭 A41 返機場", must: true },
+                    { time: "19:40", label: "班機起飛", must: true }
+                ]}
+            ];
+
+            return (
+                <div className="max-w-md mx-auto min-h-screen pb-32 overflow-x-hidden relative">
+                    {/* Header */}
+                    <div className="px-6 pt-10 pb-6 flex justify-between items-center border-b-2 border-dashed border-slate-200">
+                        <div className="flex items-center gap-3">
+                            <SafeIcon name="Anchor" className="text-[#AEC6CF]" size={28} strokeWidth={3} />
+                            <div>
+                                <h1 className="text-2xl font-black tracking-tight" style={{color: 'var(--diary-navy)'}}>香港 · 行</h1>
+                                <p className="text-[10px] font-bold opacity-40 uppercase tracking-widest">BUSAN DIARY 2026 STYLE</p>
+                            </div>
+                        </div>
+                        {activeTab === 'itinerary' && <div className="bg-[#E07A5F] text-white px-4 py-1.5 rounded-full border-2 border-slate-800 text-xs font-bold shadow-[3px_3px_0px_rgba(0,0,0,0.8)]">{itinerary[activeDay].dayText}</div>}
+                    </div>
+
+                    {/* Role & Day Selectors */}
+                    <div className="px-6 mt-6 space-y-5">
+                        {/* Role Selector */}
+                        <div className="flex bg-white border-2 border-[var(--diary-navy)] rounded-2xl p-1 shadow-[2px_2px_0px_var(--diary-navy)]">
+                            <button onClick={()=>setRole('student')} className={`flex-1 py-2 text-xs font-bold rounded-xl transition-all ${role==='student'?'bg-[var(--diary-blue)] text-white':'text-slate-400'}`}>同學版</button>
+                            <button onClick={()=>setRole('teacher')} className={`flex-1 py-2 text-xs font-bold rounded-xl transition-all ${role==='teacher'?'bg-[var(--diary-pink)] text-white':'text-slate-400'}`}>老師版</button>
+                        </div>
+
+                        {/* Day Selector */}
+                        {activeTab === 'itinerary' && (
+                            <div className="flex justify-between gap-2 overflow-x-auto pb-2 scrollbar-hide animate-pop">
+                                {itinerary.map((d, i) => (
+                                    <button key={i} onClick={() => { setActiveDay(i); window.scrollTo({top: 0, behavior: 'smooth'}); }} className={`flex-shrink-0 w-14 h-14 rounded-full border-2 border-[var(--diary-navy)] flex flex-col items-center justify-center transition-all ${activeDay===i?'bg-[#F4F1DE] scale-105 shadow-[3px_3px_0px_var(--diary-navy)]': 'bg-white shadow-[2px_2px_0px_var(--diary-navy)]'}`}>
+                                        <span className="text-[8px] font-black">{d.dayText}</span>
+                                        <span className="text-[10px] font-bold">{d.date.split('/')[1]}日</span>
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="px-6 mt-6 space-y-4">
+                        {activeTab === 'itinerary' && (
+                            <div className="animate-pop space-y-4">
+                                {/* Day Summary Card */}
+                                <div className="diary-card p-5 bg-[#FFFDF0] border-dashed">
+                                    <p className="text-[11px] font-black text-pink-400 mb-1">Today • {itinerary[activeDay].date}</p>
+                                    <h3 className="font-black text-xl mb-2 text-slate-800">{itinerary[activeDay].headerTitle}</h3>
+                                    <p className="text-xs font-bold text-slate-500 mb-3">{itinerary[activeDay].summary}</p>
+                                    {itinerary[activeDay].infoBox && <div className="bg-sky-50 p-3 rounded-xl border-l-4 border-blue-500 text-[11px] leading-relaxed text-blue-700 font-medium">🚌 {itinerary[activeDay].infoBox}</div>}
+                                    {itinerary[activeDay].warnBox && <div className="bg-amber-50 p-3 rounded-xl border-l-4 border-amber-500 text-[11px] leading-relaxed text-amber-800 font-medium mt-2">👨‍🏫 {itinerary[activeDay].warnBox}</div>}
+                                </div>
+
+                                {/* Event Cards - 直接展開內容 */}
+                                {itinerary[activeDay].events.map((e, idx) => (
+                                    <div key={e.id}>
+                                        <div className="diary-card p-5 relative">
+                                            <div className="flex justify-between items-start mb-4">
+                                                <div className="flex gap-3">
+                                                    <span className="text-[10px] font-black px-2 py-1 rounded h-fit bg-slate-100 text-slate-500">{e.time}</span>
+                                                    <h4 className="font-bold text-md diamond-bullet text-slate-800">{e.title}</h4>
+                                                </div>
+                                            </div>
+                                            
+                                            {/* 直接顯示詳細資訊 */}
+                                            <div className="mt-4 pt-4 border-t-2 border-dashed border-slate-100 space-y-3">
+                                                {e.img && (
+                                                    <div className="rounded-xl overflow-hidden border-2 border-[var(--diary-navy)] mb-3 shadow-sm">
+                                                        <img src={e.img} alt={e.title} className="w-full h-auto object-cover" />
+                                                    </div>
+                                                )}
+                                                <p className="text-xs font-bold text-slate-600 leading-relaxed bg-white p-3 rounded-xl border-2 border-slate-100 whitespace-pre-line shadow-inner">
+                                                    {role === 'teacher' ? (e.teacher || e.desc) : e.desc}
+                                                </p>
+                                                {e.tip && <p className="text-[10px] font-bold text-pink-500 italic px-1">💡 {e.tip}</p>}
+                                                {e.trans && <div className="flex items-center gap-2 text-[10px] font-bold text-blue-500 bg-blue-50/50 p-2 rounded-lg">🚌 {e.trans}</div>}
+                                                
+                                                <div className="flex gap-2 pt-2">
+                                                    <a href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(e.map)}`} target="_blank" className="flex-1 flex items-center justify-center gap-2 py-3 bg-[var(--diary-navy)] text-white rounded-xl text-xs font-black shadow-[3px_3px_0px_var(--diary-blue)] active:translate-y-0.5">
+                                                        <SafeIcon name="MapPin" size={14} /> 開始導航
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {idx < itinerary[activeDay].events.length - 1 && <div className="time-line-connector"></div>}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+                        {activeTab === 'pudding' && (
+                            <div className="animate-pop space-y-6 pb-10">
+                                <div className="diary-card p-6 bg-yellow-50">
+                                    <h3 className="font-black text-xl mb-4 flex items-center gap-2"><SafeIcon name="Coffee" className="text-orange-500" /> 兩大必吃蛋塔攻略</h3>
+                                    <div className="space-y-6">
+                                        <div className="p-4 bg-white rounded-2xl border-2 border-[var(--diary-navy)] shadow-[3px_3px_0px_var(--diary-navy)]">
+                                            <p className="font-black text-[#8D6E63] text-lg mb-2">🥐 Bakehouse</p>
+                                            <p className="text-xs font-bold leading-relaxed text-slate-600">
+                                                📍 <strong>沙田店：</strong> 新城市廣場 3 期 1 樓 153-155 號舖<br/>
+                                                ⏰ <strong>營業時間：</strong> 08:00 – 21:00<br/>
+                                                ⭐ <strong>優點：</strong> 就在飯店樓下，隨時可買，不用跑遠！
+                                            </p>
+                                        </div>
+                                        <div className="p-4 bg-white rounded-2xl border-2 border-[var(--diary-navy)] shadow-[3px_3px_0px_var(--diary-navy)]">
+                                            <p className="font-black text-[#F5A623] text-lg mb-2">🍮 Hashtag B</p>
+                                            <p className="text-xs font-bold leading-relaxed text-slate-600">
+                                                📍 <strong>地點：</strong> 尖沙咀 / 銅鑼灣分店<br/>
+                                                ⏰ <strong>備註：</strong> 雲朵外型極吸睛。適合 4/21 自由行順便購買。<br/>
+                                                ⭐ <strong>優點：</strong> 視覺效果最強，最紅打卡款。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div className="diary-card p-5 bg-[#FFFDF0] border-dashed">
+                                    <h4 className="font-black text-md mb-3">📍 自由行路線建議</h4>
+                                    <div className="space-y-3">
+                                        <div className="bg-white p-3 rounded-xl border-2 border-slate-100">
+                                            <p className="text-xs font-black">路線 A｜尖沙咀文化散步</p>
+                                            <p className="text-[11px] font-medium text-slate-500">星光大道拍照 → 歷史博物館 → 維港夜景</p>
+                                        </div>
+                                        <div className="bg-white p-3 rounded-xl border-2 border-slate-100">
+                                            <p className="text-xs font-black">路線 B｜深水埗在地美食</p>
+                                            <p className="text-[11px] font-medium text-slate-500">鴨寮街挖寶 → 公和荳品廠豆腐花 → 豬手麵</p>
+                                        </div>
+                                        <div className="bg-white p-3 rounded-xl border-2 border-slate-100">
+                                            <p className="text-xs font-black">路線 C｜旺角掃街版</p>
+                                            <p className="text-[11px] font-medium text-slate-500">波鞋街買鞋 → 女人街 → 雞蛋仔咖哩魚蛋</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {activeTab === 'teacher' && (
+                            <div className="animate-pop space-y-6 pb-10">
+                                <div className="diary-card p-5 bg-[#FFFDF0]">
+                                    <h2 className="text-xl font-black text-[#E07A5F] flex items-center gap-2 mb-2"><SafeIcon name="Briefcase" /> 老師懶人包</h2>
+                                    <p className="text-xs font-bold text-slate-500">📌 每天早餐一定同行，其他時段依各天情況不同。</p>
+                                </div>
+                                {teacherGuide.map((day, idx) => (
+                                    <div key={idx} className="diary-card overflow-hidden animate-pop" style={{animationDelay: `${idx*0.1}s`}}>
+                                        <div className="bg-slate-800 p-4 text-white">
+                                            <p className="text-[10px] font-bold text-yellow-300 tracking-widest">{day.day}</p>
+                                            <h3 className="font-black text-lg">{day.title}</h3>
+                                        </div>
+                                        <div className="p-4 space-y-3">
+                                            {day.items.map((item, iIdx) => (
+                                                <div key={iIdx} className="flex items-center justify-between pb-2 border-b border-slate-50 last:border-0">
+                                                    <div className="flex gap-4">
+                                                        <span className="text-[11px] font-bold text-slate-400 font-mono w-10">{item.time}</span>
+                                                        <span className="text-xs font-bold text-slate-700">{item.label}</span>
+                                                    </div>
+                                                    {item.must && <span className="teacher-must-tag">必</span>}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+                        {activeTab === 'tools' && (
+                            <div className="animate-pop space-y-6">
+                                <div className="diary-card p-8 bg-yellow-50">
+                                    <h3 className="font-black text-lg mb-6 flex items-center gap-2"><SafeIcon name="RefreshCw" className="text-amber-500" /> 算帳小幫手 (1:4.15)</h3>
+                                    <div className="space-y-5">
+                                        <div className="relative">
+                                            <input type="number" value={hkd} onChange={(e)=>{setHkd(e.target.value); setTwd(e.target.value? (e.target.value*4.15).toFixed(0) : '')}} placeholder="輸入港幣 HKD" className="w-full p-4 rounded-2xl border-2 border-[var(--diary-navy)] font-bold text-lg outline-none shadow-inner" />
+                                            <span className="absolute right-4 top-4 font-black opacity-30">HKD</span>
+                                        </div>
+                                        <div className="flex justify-center"><SafeIcon name="ChevronDown" className="text-yellow-500 animate-bounce" /></div>
+                                        <div className="p-6 bg-white rounded-2xl border-2 border-[var(--diary-navy)] text-center shadow-inner relative overflow-hidden">
+                                            <p className="text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">換算台幣約</p>
+                                            <p className="text-4xl font-black text-orange-500 font-mono">NT$ {twd || 0}</p>
+                                            <div className="absolute top-0 left-0 w-1 h-full bg-orange-400"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Bottom Nav */}
+                    <div className="fixed bottom-0 left-0 right-0 max-w-md mx-auto z-50 px-4 pb-6">
+                        <div className="bg-white border-[3px] border-[var(--diary-navy)] p-2 flex justify-between items-center rounded-[3rem] shadow-[0_10px_25px_rgba(0,0,0,0.15)]">
+                            <button onClick={() => setActiveTab('itinerary')} className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-full transition-all ${activeTab === 'itinerary' ? 'bg-rose-100 scale-105' : ''}`}>
+                                <SafeIcon name="Home" className={activeTab === 'itinerary' ? 'text-rose-500' : 'text-slate-300'} />
+                                <span className="text-[9px] font-black uppercase">行程</span>
+                            </button>
+                            <button onClick={() => setActiveTab('tools')} className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-full transition-all ${activeTab === 'tools' ? 'bg-yellow-100 scale-105' : ''}`}>
+                                <SafeIcon name="RefreshCw" className={activeTab === 'tools' ? 'text-amber-500' : 'text-slate-300'} />
+                                <span className="text-[9px] font-black uppercase">工具</span>
+                            </button>
+                            <button onClick={() => setActiveTab('teacher')} className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-full transition-all ${activeTab === 'teacher' ? 'bg-indigo-100 scale-105' : ''}`}>
+                                <SafeIcon name="Briefcase" className={activeTab === 'teacher' ? 'text-indigo-500' : 'text-slate-300'} />
+                                <span className="text-[9px] font-black uppercase">老師</span>
+                            </button>
+                            <button onClick={() => setActiveTab('pudding')} className={`flex-1 flex flex-col items-center gap-1 py-2 rounded-full transition-all ${activeTab === 'pudding' ? 'bg-pink-100 scale-105' : ''}`}>
+                                <SafeIcon name="Coffee" className={activeTab === 'pudding' ? 'text-pink-500' : 'text-slate-300'} />
+                                <span className="text-[9px] font-black uppercase">美食</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
