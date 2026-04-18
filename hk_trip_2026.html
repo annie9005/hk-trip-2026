@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>🇭🇰 香港研討會之旅 2026</title>
+<!-- SEO & Social Sharing -->
+<meta name="description" content="2026 香港研討會行程行程表 - 研究團隊專屬攻略">
+<meta property="og:title" content="🇭🇰 香港研討會之旅 2026">
+<meta property="og:description" content="4/20 - 4/23 香港研討會精彩行程，包含蛋塔攻略與老師行程懶人包。">
+<meta property="og:type" content="website">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #E8294A;
+  --red-light: #FF6B7A;
+  --red-pale: #FFF0F2;
+  --jade: #1D7A5F;
+  --jade-light: #2EAA85;
+  --gold: #F5A623;
+  --gold-light: #FFD180;
+  --navy: #1A2744;
+  --navy-mid: #2D3F6B;
+  --sky: #E8F4FD;
+  --cream: #FFFBF5;
+  --warm-gray: #F7F3EE;
+  --text: #2A1F1F;
+  --text-soft: #6B5B5B;
+  --border: #EAE0D8;
+  --shadow: rgba(26,39,68,0.10);
+  --font-title: 'Playfair Display', serif;
+  --font-body: 'Noto Sans TC', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 40px 24px;
+}
+
+.hero-bg-circles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-bg-circles span {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.07;
+  background: var(--red);
+}
+.hero-bg-circles span:nth-child(1) { width:600px;height:600px;top:-200px;left:-200px; }
+.hero-bg-circles span:nth-child(2) { width:400px;height:400px;bottom:-100px;right:-100px;background:var(--gold); }
+.hero-bg-circles span:nth-child(3) { width:200px;height:200px;top:40%;right:10%;background:var(--jade); }
+
+.hero-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.2s forwards;
+}
+
+.hero-title {
+  font-family: var(--font-title);
+  font-size: clamp(48px, 10vw, 90px);
+  color: #fff;
+  text-align: center;
+  line-height: 1.1;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.4s forwards;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--red-light);
+}
+
+.hero-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  margin-top: 16px;
+  letter-spacing: 1px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.6s forwards;
+}
+
+.hero-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 32px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.8s forwards;
+}
+.hero-pill {
+  padding: 8px 18px;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.hero-pill.red { background: var(--red); color: #fff; }
+.hero-pill.gold { background: var(--gold); color: var(--navy); }
+.hero-pill.jade { background: var(--jade); color: #fff; }
+.hero-pill.outline { border: 1.5px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); }
+
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.4);
+  font-size: 11px;
+  letter-spacing: 2px;
+  animation: bounce 2s infinite;
+}
+.hero-scroll::after {
+  content: '';
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.2);
+}
+
+/* ===== NAV ===== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,251,245,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 16px;
+}
+.nav-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  mask-image: linear-gradient(to right, black 85%, transparent 100%);
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-btn {
+  flex-shrink: 0;
+  padding: 14px 16px;
+  font-size: 13px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--text-soft);
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-bottom: 2.5px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav-btn.active, .nav-btn:hover {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+
+/* ===== SECTIONS ===== */
+.section { display: none; max-width: 900px; margin: 0 auto; padding: 32px 16px 60px; }
+.section.active { display: block; }
+
+/* ===== SECTION TITLE ===== */
+.sec-title {
+  font-family: var(--font-title);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sec-sub {
+  font-size: 13px;
+  color: var(--text-soft);
+  margin-bottom: 28px;
+  padding-left: 2px;
+}
+
+/* ===== DAY CARD ===== */
+.day-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 20px 24px;
+  background: var(--navy);
+  border-radius: 20px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.day-header::after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+.day-num {
+  font-family: var(--font-mono);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  flex-shrink: 0;
+}
+.day-info h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+.day-info p { font-size: 12px; color: rgba(255,255,255,0.6); letter-spacing: 0.5px; }
+.day-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.day-badge {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-weight: 600;
+}
+.badge-red { background: var(--red); color: #fff; }
+.badge-gold { background: var(--gold); color: var(--navy); }
+.badge-jade { background: var(--jade); color: #fff; }
+.badge-outline { border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); }
+
+/* ===== TIMELINE ===== */
+.timeline { position: relative; padding-left: 60px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--red), var(--gold), var(--jade));
+  border-radius: 2px;
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateX(-10px);
+  animation: slideIn 0.5s ease forwards;
+}
+.tl-item:nth-child(1){animation-delay:0.05s}
+.tl-item:nth-child(2){animation-delay:0.1s}
+.tl-item:nth-child(3){animation-delay:0.15s}
+.tl-item:nth-child(4){animation-delay:0.2s}
+.tl-item:nth-child(5){animation-delay:0.25s}
+.tl-item:nth-child(6){animation-delay:0.3s}
+.tl-item:nth-child(7){animation-delay:0.35s}
+.tl-item:nth-child(8){animation-delay:0.4s}
+.tl-item:nth-child(9){animation-delay:0.45s}
+.tl-item:nth-child(10){animation-delay:0.5s}
+.tl-item:nth-child(11){animation-delay:0.55s}
+.tl-item:nth-child(12){animation-delay:0.6s}
+
+.tl-dot {
+  position: absolute;
+  left: -38px;
+  top: 12px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2.5px solid var(--cream);
+  z-index: 1;
+}
+.tl-dot.red { background: var(--red); }
+.tl-dot.gold { background: var(--gold); }
+.tl-dot.jade { background: var(--jade); }
+.tl-dot.navy { background: var(--navy); }
+.tl-dot.gray { background: #ccc; }
+
+.tl-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px 18px;
+  box-shadow: 0 2px 12px var(--shadow);
+  border: 1px solid var(--border);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.tl-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px var(--shadow);
+}
+.tl-card.highlight {
+  border-left: 4px solid var(--red);
+  background: var(--red-pale);
+}
+.tl-card.teacher {
+  border-left: 4px solid var(--gold);
+  background: #FFFDF0;
+}
+.tl-card.transport {
+  background: var(--sky);
+  border: 1px dashed #90CAF9;
+}
+.tl-card.pudding {
+  border-left: 4px solid #F5A623;
+  background: linear-gradient(135deg, #FFFBF0, #FFF3E0);
+}
+
+.tl-time {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-soft);
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+.tl-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.tl-desc {
+  font-size: 13px;
+  color: var(--text-soft);
+  margin-top: 6px;
+  line-height: 1.6;
+}
+.tl-tip {
+  font-size: 12px;
+  margin-top: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.04);
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+.tl-tip.red { background: rgba(232,41,74,0.08); color: var(--red); }
+.tl-tip.gold { background: rgba(245,166,35,0.12); color: #9A6A00; }
+.tl-tip.jade { background: rgba(29,122,95,0.1); color: var(--jade); }
+
+.transport-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: #1565C0;
+  font-weight: 500;
+}
+.transport-step {
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: rgba(21,101,192,0.1);
+  font-size: 12px;
+}
+.transport-arrow { color: #90CAF9; font-size: 16px; }
+
+/* ===== ALT PLANS ===== */
+.alt-section {
+  margin-top: 24px;
+  background: var(--warm-gray);
+  border-radius: 20px;
+  padding: 20px;
+}
+.alt-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.alt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+.alt-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  border: 1.5px solid var(--border);
+}
+.alt-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.alt-card-body { font-size: 12px; color: var(--text-soft); line-height: 1.6; }
+
+/* ===== BREAKFAST COMPARE ===== */
+.compare-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 16px 0;
+  font-size: 13px;
+}
+.compare-table th {
+  background: var(--navy);
+  color: #fff;
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+}
+.compare-table th:first-child { border-radius: 12px 0 0 0; }
+.compare-table th:last-child { border-radius: 0 12px 0 0; }
+.compare-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); background: #fff; }
+.compare-table tr:last-child td:first-child { border-radius: 0 0 0 12px; }
+.compare-table tr:last-child td:last-child { border-radius: 0 0 12px 0; }
+.compare-table tr:hover td { background: var(--warm-gray); }
+.rec-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--gold);
+  color: var(--navy);
+}
+
+/* ===== PUDDING SECTION ===== */
+.pudding-hero {
+  background: linear-gradient(135deg, #FFF8E7, #FFE0B2);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 2px solid var(--gold-light);
+}
+.pudding-hero h3 {
+  font-family: var(--font-title);
+  font-size: 24px;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.pudding-hero p { font-size: 13px; color: var(--text-soft); line-height: 1.6; }
+.pudding-plans {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+}
+.pudding-plan {
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+.pudding-plan::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+}
+.pudding-plan.main::before { background: var(--gold); border-color: var(--gold-light); }
+.pudding-plan.alt::before { background: var(--jade); }
+.pudding-plan.backup::before { background: #ccc; }
+.pudding-plan.main { border-color: var(--gold-light); }
+.pudding-plan-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.pudding-plan.main .pudding-plan-badge { color: var(--gold); }
+.pudding-plan.alt .pudding-plan-badge { color: var(--jade); }
+.pudding-plan.backup .pudding-plan-badge { color: #999; }
+.pudding-plan h4 { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+.pudding-plan p { font-size: 12px; color: var(--text-soft); line-height: 1.6; }
+.pudding-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 12px;
+}
+.pudding-info-row { display: flex; align-items: flex-start; gap: 6px; }
+.pudding-info-label { font-weight: 600; color: var(--text); flex-shrink: 0; }
+.pudding-info-val { color: var(--text-soft); }
+
+/* ===== TEACHER CARD ===== */
+.teacher-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+.teacher-day-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px var(--shadow);
+  border: 1px solid var(--border);
+}
+.teacher-day-header {
+  background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+  padding: 16px 20px;
+  color: #fff;
+}
+.teacher-day-header .d-num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+.teacher-day-header h4 { font-size: 16px; font-weight: 700; }
+.teacher-day-body { padding: 16px 20px; }
+.teacher-item {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.teacher-item:last-child { border-bottom: none; }
+.teacher-item-time {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-soft);
+  flex-shrink: 0;
+  width: 52px;
+}
+.teacher-item-content { font-size: 13px; line-height: 1.5; }
+.teacher-item-content strong { color: var(--navy); font-weight: 700; }
+.must-tag {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 99px;
+  background: var(--red);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+.opt-tag {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 99px;
+  background: var(--border);
+  color: var(--text-soft);
+  font-size: 10px;
+  font-weight: 700;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+/* ===== ROUTE CARDS ===== */
+.route-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.route-tab {
+  padding: 8px 16px;
+  border-radius: 99px;
+  border: 2px solid var(--border);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #fff;
+  transition: all 0.2s;
+}
+.route-tab.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+.route-tab:hover:not(.active) { border-color: var(--navy); }
+.route-content { display: none; }
+.route-content.active { display: block; }
+
+/* ===== UTILS ===== */
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 600px) { .grid2 { grid-template-columns: 1fr; } }
+
+.info-box {
+  background: var(--sky);
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 13px;
+  line-height: 1.7;
+  border-left: 4px solid #1565C0;
+  margin: 12px 0;
+  color: #1A3A6B;
+}
+.warn-box {
+  background: #FFF8E7;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 13px;
+  line-height: 1.7;
+  border-left: 4px solid var(--gold);
+  margin: 12px 0;
+  color: #6D4C00;
+}
+.tip-box {
+  background: #F0FBF7;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 13px;
+  line-height: 1.7;
+  border-left: 4px solid var(--jade);
+  margin: 12px 0;
+  color: #0D4A38;
+}
+
+.divider { height: 1px; background: var(--border); margin: 24px 0; }
+.mt16 { margin-top: 16px; }
+.mt24 { margin-top: 24px; }
+.label-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin: 20px 0 12px;
+}
+.label-row::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 640px) {
+  .timeline { padding-left: 44px; }
+  .timeline::before { left: 20px; }
+  .tl-dot { left: -28px; width: 14px; height: 14px; }
+  .day-num { font-size: 30px; }
+  .sec-title { font-size: 26px; }
+}
+
+/* ===== VERSION TAG ===== */
+.v-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.v-teacher { background: var(--gold); color: var(--navy); }
+.v-student { background: var(--jade); color: #fff; }
+.v-both { background: var(--navy); color: #fff; }
+
+.sub-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 16px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+/* ===== BACK TO TOP ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 99;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+  border: none;
+}
+.back-to-top.show { opacity: 1; pointer-events: auto; }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-bg-circles">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="hero-tag">🎓 Research Trip · 2026</div>
+  <h1 class="hero-title">香港<br><em>研討會之旅</em></h1>
+  <p class="hero-sub">4 / 20 — 4 / 23 · 2026 ✈️ 沙田 → 世界</p>
+  <div class="hero-pills">
+    <span class="hero-pill red">🇭🇰 香港</span>
+    <span class="hero-pill gold">🎓 EdUHK 研討會</span>
+    <span class="hero-pill jade">🍮 Hashtag B 蛋塔</span>
+    <span class="hero-pill outline">🚌 A41 機場巴士</span>
+    <span class="hero-pill outline">🚇 東鐵綫</span>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</div>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="showSection('day420')">4/20 抵達</button>
+    <button class="nav-btn" onclick="showSection('day421')">4/21 碩二報告</button>
+    <button class="nav-btn" onclick="showSection('day422')">4/22 碩一報告</button>
+    <button class="nav-btn" onclick="showSection('day423')">4/23 回程</button>
+    <button class="nav-btn" onclick="showSection('pudding')">🍮 蛋塔攻略</button>
+    <button class="nav-btn" onclick="showSection('teacher')">👨‍🏫 老師懶人包</button>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- DAY 1 : 4/20 -->
+<!-- ============================================================ -->
+<section class="section active" id="day420">
+  <div class="sec-title">✈️ Day 1</div>
+  <div class="sec-sub">4月20日（一）· 抵達日 · 入住 Royal Park Hotel</div>
+
+  <div class="day-header">
+    <div class="day-num">01</div>
+    <div class="day-info">
+      <h3>抵港！先吃再玩，傍晚入住 🎉</h3>
+      <p>12:05 抵達 · Royal Park Hotel（15:00 入住）· New Town Plaza 輕探索</p>
+      <div class="day-badges">
+        <span class="day-badge badge-gold">✈️ 抵達日</span>
+        <span class="day-badge badge-red">🏨 15:00 入住</span>
+        <span class="day-badge badge-jade">🛍️ New Town Plaza</span>
+        <span class="day-badge badge-outline">🍽️ 晚上師生聚餐</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box">🚌 <strong>交通提醒：</strong>從香港機場搭乘 <strong>Citybus A41</strong> 直達沙田。班次約每 30 分鐘一班，車程約 60 分鐘，終點站「沙田市中心」即可步行至 Royal Park Hotel（約 5 分鐘）。</div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot red"></div>
+      <div class="tl-card highlight">
+        <div class="tl-time">12:05</div>
+        <div class="tl-title">✈️ 抵達香港國際機場</div>
+        <div class="tl-desc">通關、取行李（預計 30–40 分鐘）</div>
+        <div class="tl-tip red">📋 入境後先拍一張報告時間表給全員確認，以免遺漏</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot navy"></div>
+      <div class="tl-card transport">
+        <div class="tl-time">12:50</div>
+        <div class="tl-title">🚌 搭乘 Citybus A41</div>
+        <div class="transport-row">
+          <span class="transport-step">機場巴士站 E2</span>
+          <span class="transport-arrow">➡️</span>
+          <span class="transport-step">Citybus A41</span>
+          <span class="transport-arrow">➡️</span>
+          <span class="transport-step">沙田市中心站</span>
+        </div>
+        <div class="tl-tip">💡 車資約 HK$24，可用八達通付款。行李放車底行李艙，先確認好是哪班。</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot jade"></div>
+      <div class="tl-card">
+        <div class="tl-time">14:00</div>
+        <div class="tl-title">🏨 抵達 Royal Park Hotel — 行李寄放</div>
+        <div class="tl-desc">前台告知寄放行李，並確認房間是否提前開放（如早開可直接入住）。換上輕裝，出發探索！</div>
+        <div class="tl-tip gold">⏰ 入住時間 15:00，提前到達可先寄放行李，輕裝出遊</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot gold"></div>
+      <div class="tl-card teacher">
+        <div class="tl-time">14:15 – 15:00</div>
+        <div class="tl-title">🍱 New Town Plaza 午餐 <span class="v-tag v-both">全體</span></div>
+        <div class="tl-desc">
+          <strong>推薦餐廳（沙田新城市廣場一期）：</strong><br>
+          🍜 <strong>Ho Hung Kee 可一粥麵</strong>（正宗雲吞麵老字號）<br>
+          🍛 <strong>翠華餐廳</strong>（港式茶餐廳，菜式多元）<br>
+          🍣 <strong>壽司郎 Sushiro</strong>（高性價比迴轉壽司，快速解決午餐）
+        </div>
+        <div class="tl-tip">📍 新城市廣場位於沙田正中心，步行至飯店僅 5 分鐘</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot jade"></div>
+      <div class="tl-card">
+        <div class="tl-time">15:00 – 17:30</div>
+        <div class="tl-title">🛍️ New Town Plaza 輕行程探索 <span class="v-tag v-both">全體</span></div>
+        <div class="tl-desc">
+          入住後換行李、休息片刻，再前往廣場散步：<br>
+          ✅ 確認明日研討會資料 & 報告設備<br>
+          🛒 採購零食、飲料（明日早餐備用）<br>
+          ☕ 新城市廣場三樓有多家咖啡廳（Pacific Coffee / Starbucks）<br>
+          📮 在廣場內走走拍照，打個卡
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot gold"></div>
+      <div class="tl-card teacher">
+        <div class="tl-time">15:00 – 16:00</div>
+        <div class="tl-title">🏨 正式入住 Check-in <span class="v-tag v-teacher">師生</span></div>
+        <div class="tl-desc">辦理入住，放好行李，確認明日集合時間（08:00 早餐）</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot red"></div>
+      <div class="tl-card highlight">
+        <div class="tl-time">18:30</div>
+        <div class="tl-title">🍽️ 師生晚餐聚餐 — New Town Plaza 商場 <span class="v-tag v-teacher">老師同行</span></div>
+        <div class="tl-desc">
+          <strong>推薦地點：</strong><br>
+          🦞 <strong>大班樓 The Grand楼</strong>（港式粵菜，適合聚餐）<br>
+          🥩 <strong>翠華餐廳</strong>（港式餐廳，多人聚餐方便點菜）<br>
+          🫕 <strong>圍爐 Wai Lo</strong>（現代粵菜，打卡感強）<br><br>
+          建議提前請老師確認偏好，或由老師點菜 🙌
+        </div>
+        <div class="tl-tip red">🌟 第一天聚餐！互相認識打氣，為明天的碩二報告加油💪</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot navy"></div>
+      <div class="tl-card">
+        <div class="tl-time">20:30</div>
+        <div class="tl-title">🌙 回房休息，準備明日報告</div>
+        <div class="tl-desc">早點休息！明天 08:00 早餐，10:00 準時開始報告 🎯</div>
+        <div class="tl-tip jade">✅ 睡前 checklist：報告 PPT 存好備份、八達通確認有餘額、手機設好鬧鐘</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 入住前備案 -->
+  <div class="alt-section mt24">
+    <div class="alt-title">🔄 入住前備案活動清單（15:00 前行李已寄放，輕裝出遊）</div>
+    <div class="alt-grid">
+      <div class="alt-card">
+        <div class="alt-card-title">🌿 備案 A｜城門河畔漫步</div>
+        <div class="alt-card-body">從飯店步行約 10 分鐘即達城門河，沿河景觀優美。適合剛下飛機放鬆腳步、拍拍照，體力需求低。</div>
+      </div>
+      <div class="alt-card">
+        <div class="alt-card-title">📚 備案 B｜沙田公共圖書館</div>
+        <div class="alt-card-body">新城市廣場旁沙田大會堂內設有公共圖書館，可入內避開人潮、整理報告資料，也有閱讀區休息。</div>
+      </div>
+      <div class="alt-card">
+        <div class="alt-card-title">🎮 備案 C｜商場消磨時光</div>
+        <div class="alt-card-body">新城市廣場共 3 期，有電影院（UA）、遊戲機中心，逛街兼躲太陽，輕鬆消磨 1–2 小時。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- DAY 2 : 4/21 -->
+<!-- ============================================================ -->
+<section class="section" id="day421">
+  <div class="sec-title">🎤 Day 2</div>
+  <div class="sec-sub">4月21日（二）· 碩二報告日 · 下午老師掃墓，學生自由行</div>
+
+  <div class="day-header">
+    <div class="day-num">02</div>
+    <div class="day-info">
+      <h3>碩二生上場！下午解鎖自由模式 🔓</h3>
+      <p>10:00–12:10 研討會報告 · 下午老師離開 · 學生自由行</p>
+      <div class="day-badges">
+        <span class="day-badge badge-red">🎤 碩二報告</span>
+        <span class="day-badge badge-gold">☕ 早餐 08:00</span>
+        <span class="day-badge badge-jade">🆓 下午自由行</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 早餐比較 -->
+  <div class="label-row">☕ 早餐選擇比較（08:00，老師同行）</div>
+
+  <div class="warn-box">👨‍🏫 老師會一起用早餐，請全體 07:50 在飯店大廳集合，準時 08:00 出發！</div>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>餐廳</th>
+        <th>風格</th>
+        <th>距離</th>
+        <th>預估費用</th>
+        <th>推薦度</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>🥐 Red Tea Café（紅茶冰室）</strong><br><small style="color:#999">沙田新城市廣場附近</small></td>
+        <td>正統港式冰室，奶茶、炒蛋、腸粉齊備</td>
+        <td>步行 5 分鐘</td>
+        <td>HK$50–70/人</td>
+        <td><span class="rec-badge">⭐ 推薦</span></td>
+      </tr>
+      <tr>
+        <td><strong>🍳 Tai Hing（大家樂旁支）</strong><br><small style="color:#999">沙田多分店</small></td>
+        <td>連鎖茶餐廳，快速穩定，套餐多元</td>
+        <td>步行 3 分鐘</td>
+        <td>HK$45–65/人</td>
+        <td>✅ 方便快速</td>
+      </tr>
+      <tr>
+        <td><strong>🏨 飯店自助早餐（Royal Park Hotel）</strong><br><small style="color:#999">飯店內部</small></td>
+        <td>自助式，省時省力，品項豐富</td>
+        <td>0（飯店內）</td>
+        <td>HK$120–160/人</td>
+        <td>⏰ 適合趕時間</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box">🌟 <strong>編輯推薦 Red Tea Café：</strong>地道港式冰室體驗，奶茶是招牌，炒蛋多士必點！步行即達，用餐後直接步行到研討會場。若老師有特別偏好，以老師優先為主 😊</div>
+
+  <div class="divider"></div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot gold"></div>
+      <div class="tl-card teacher">
+        <div class="tl-time">07:50</div>
+        <div class="tl-title">🏨 大廳集合 <span class="v-tag v-teacher">老師同行</span></div>
+        <div class="tl-desc">全體在飯店大廳集合，確認人員到齊後出發吃早餐</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot gold"></div>
+      <div class="tl-card teacher">
+        <div class="tl-time">08:00 – 09:00</div>
+        <div class="tl-title">☕ 早餐 — Red Tea Café（推薦）<span class="v-tag v-teacher">老師同行</span></div>
+        <div class="tl-desc">
+          必點：🧋 港式奶茶、🍞 炒蛋多士、🥚 腸粉<br>
+          用餐時間約 40 分鐘，留 20 分鐘走路到場地
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot navy"></div>
+      <div class="tl-card transport">
+        <div class="tl-time">09:15</div>
+        <div class="tl-title">🚶 步行前往研討會場地</div>
+        <div class="tl-desc">確認場地位置，提前到場測試設備、確認 PPT 格式</div>
+        <div class="transport-row">
+          <span class="transport-step">Royal Park Hotel</span>
+          <span class="transport-arrow">➡️</span>
+          <span class="transport-step">步行約 10-15 分鐘</span>
+          <span class="transport-arrow">➡️</span>
+          <span class="transport-step">研討會場地</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot red"></div>
+      <div class="tl-card highlight">
+        <div class="tl-time">09:30 – 09:55</div>
+        <div class="tl-title">🔧 報告前設備確認</div>
+        <div class="tl-desc">投影機、連線、PPT 最後確認。報告者深呼吸，你們準備好了！</div>
+        <div class="tl-tip red">⚠️ 注意事項：備份 USB 隨身碟、確認 PPT 字體顯示正常</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot red"></div>
+      <div class="tl-card highlight">
+        <div class="tl-time">10:00 – 12:10</div>
+        <div class="tl-title">🎤 研討會報告 — 碩二生上場！ <span class="v-tag v-teacher">老師同行</span></div>
+        <div class="tl-desc">
+          📌 正式報告時段，嚴格不安排其他行程<br>
+          💪 碩二生加油！老師跟學弟妹都在為你們應援！
+        </div>
+        <div class="tl-tip red">🔒 此時段為鎖定時段，絕對不安排任何衝突行程</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot gold"></div>
+      <div class="tl-card teacher">
+        <div class="tl-time">12:10 – 13:00</div>
+        <div class="tl-title">🍜 午餐 — 報告完後慶功！</div>
+        <div class="tl-desc">
+          老師於此時離開前往掃墓，可先一起吃午餐再分別行動<br>
+          <strong>推薦：</strong>沙田大圍一帶，或步行回新城市廣場覓食
+        </div>
+        <div class="tl-tip gold">👋 老師午餐後離開，同學們進入自由行模式！</div>
+      </div>
+    </div>
+
+    <!-- 學生自由行 -->
+    <div class="tl-item">
+      <div class="tl-dot jade"></div>
+      <div class="tl-card">
+        <div class="tl-time">13:30 ➡️ 晚上</div>
+        <div class="tl-title">🔓 學生自由行 — 選擇你的路線 <span class="v-tag v-student">學生版</span></div>
+        <div class="tl-desc">見下方兩條完整路線，選一條出發！</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 自由行路線 -->
+  <div class="label-row">🗺️ 學生自由行路線（擇一出發）</div>
+
+  <div class="route-tabs">
+    <button class="route-tab active" onclick="showRoute('tsim', this)">路線 A｜尖沙咀文化散步</button>
+    <button class="route-tab" onclick="showRoute('ssp', this)">路線 B｜深水埗在地美食</button>
+    <button class="route-tab" onclick="showRoute('mongkok', this)">路線 C｜旺角掃街版</button>
+  </div>
+
+  <div class="route-content active" id="route-tsim">
+    <div class="info-box">
+      🚇 <strong>交通：</strong>沙田站 → 東鐵綫 → 紅磡站 → 轉乘西鐵綫 → 尖東站下車<br>
+      ⏰ 車程約 30 分鐘
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot jade"></div>
+        <div class="tl-card">
+          <div class="tl-time">13:30 – 14:30</div>
+          <div class="tl-title">🎨 香港文化中心 / 星光大道</div>
+          <div class="tl-desc">欣賞維多利亞港景色，在星光大道拍照打卡，感受香港城市美景 🌆</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot jade"></div>
+        <div class="tl-card">
+          <div class="tl-time">14:30 – 16:00</div>
+          <div class="tl-title">🏛️ 香港歷史博物館（免費入場）</div>
+          <div class="tl-desc">了解香港歷史發展，常設展「香港故事」非常精彩，免費入場，適合下午悠閒參觀</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot jade"></div>
+        <div class="tl-card pudding">
+          <div class="tl-time">16:00 – 17:00</div>
+          <div class="tl-title">🍮 Hashtag B 蛋塔（備選時機）</div>
+          <div class="tl-desc">若蛋塔攻略決定在今日執行，此時可前往尖沙咀附近分店購買</div>
+          <div class="tl-tip gold">詳細蛋塔攻略請見「🍮 蛋塔攻略」頁面</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot jade"></div>
+        <div class="tl-card">
+          <div class="tl-time">17:30 – 19:30</div>
+          <div class="tl-title">🌃 尖沙咀晚餐＋夜景</div>
+          <div class="tl-desc">
+            🍜 <strong>美都餐室</strong>（油麻地，歷史老茶餐廳）<br>
+            🐟 <strong>海景餐廳</strong>（海港城附近，景色優）<br>
+            🌃 飯後欣賞維港夜景，拍對岸燈光秀（每晚 20:00）
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot navy"></div>
+        <div class="tl-card transport">
+          <div class="tl-time">20:30</div>
+          <div class="tl-title">🚇 返回沙田</div>
+          <div class="transport-row">
+            <span class="transport-step">尖東站</span>
+            <span class="transport-arrow">➡️</span>
+            <span class="transport-step">西鐵綫 → 紅磡</span>
+            <span class="transport-arrow">➡️</span>
+            <span class="transport-step">東鐵綫 → 沙田</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="route-content" id="route-ssp">
+    <div class="info-box">
+      🚇 <strong>交通：</strong>沙田站 → 東鐵綫 → 旺角東站 → 步行或轉車 → 深水埗站<br>
+      ⏰ 車程約 35 分鐘
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot red"></div>
+        <div class="tl-card">
+          <div class="tl-time">13:30 – 15:30</div>
+          <div class="tl-title">🧵 深水埗 — 布料街 & 電子街</div>
+          <div class="tl-desc">
+            📍 鴨寮街（電子零件、二手電器，非常特色）<br>
+            🧶 汝州街（布料、手作材料，超便宜）<br>
+            🍢 沿路小食：砵仔糕、煎釀三寶、牛雜
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot red"></div>
+        <div class="tl-card">
+          <div class="tl-time">15:30 – 17:00</div>
+          <div class="tl-title">🍦 深水埗美食探店</div>
+          <div class="tl-desc">
+            🥮 <strong>公和荳品廠</strong>（1895年老店，豆腐花必吃）<br>
+            🍢 <strong>好旺角燒味</strong>（叉燒、燒鵝飯）<br>
+            🧋 深水埗奶茶老店（隨處可見地道冰室）
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot red"></div>
+        <div class="tl-card">
+          <div class="tl-time">17:00 – 19:00</div>
+          <div class="tl-title">🍜 深水埗晚餐</div>
+          <div class="tl-desc">
+            🍝 <strong>興記（桂林街）</strong>— 豬手麵超級出名<br>
+            🌮 <strong>地道排檔</strong>— 體驗香港舊區飲食文化
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot navy"></div>
+        <div class="tl-card transport">
+          <div class="tl-time">19:30</div>
+          <div class="tl-title">🚇 返回沙田</div>
+          <div class="transport-row">
+            <span class="transport-step">深水埗站</span>
+            <span class="transport-arrow">➡️</span>
+            <span class="transport-step">荃灣綫 → 旺角東</span>
+            <span class="transport-arrow">➡️</span>
+            <span class="transport-step">東鐵綫 → 沙田</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="route-content" id="route-mongkok">
+    <div class="info-box">
+      🚇 <strong>交通：</strong>沙田站 → 東鐵綫 → 旺角東站下車（步行直達旺角）<br>
+      ⏰ 車程約 25 分鐘
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot gold"></div>
+        <div class="tl-card">
+          <div class="tl-time">13:30 – 15:30</div>
+          <div class="tl-title">🛍️ 旺角掃街 — 女人街 & 波鞋街</div>
+          <div class="tl-desc">
+            👟 波鞋街：球鞋控天堂，各品牌齊全<br>
+            👗 女人街：精品、小物、紀念品<br>
+            🎮 旺角電腦中心：懷舊電玩、周邊商品
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot gold"></div>
+        <div class="tl-card">
+          <div class="tl-time">16:00 – 19:00</div>
+          <div class="tl-title">🍢 旺角掃街美食</div>
+          <div class="tl-desc">
+            🧇 <strong>雞蛋仔</strong>（街頭必吃）<br>
+            🥚 <strong>咖喱魚蛋</strong>（旺角街頭小食代表）<br>
+            🍵 <strong>澳門茶餐廳</strong>（葡式蛋撻、豬扒包）<br>
+            🥩 <strong>麥奀記雲吞麵</strong>（正宗細蓉）
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot navy"></div>
+        <div class="tl-card transport">
+          <div class="tl-time">19:30</div>
+          <div class="tl-title">🚇 返回沙田</div>
+          <div class="transport-row">
+            <span class="transport-step">旺角東站</span>
+            <span class="transport-arrow">➡️</span>
+            <span class="transport-step">東鐵綫直達</span>
+            <span class="transport-arrow">➡️</span>
+            <span class="transport-step">沙田站（約 25 分鐘）</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- DAY 3 : 4/22 -->
+<!-- ============================================================ -->
+<section class="section" id="day422">
+  <div class="sec-title">🏫 Day 3</div>
+  <div class="sec-sub">4月22日（三）· 碩一報告日 · EdUHK · 晚宴 Bafang Zhan</div>
+
+  <div class="day-header">
+    <div class="day-num">03</div>
+    <div class="day-info">
+      <h3>碩一衝！下午放鬆，晚上研討會晚宴 🥂</h3>
+      <p>前往 EdUHK · 12:05–12:45 碩一報告 · 晚宴 Bafang Zhan</p>
+      <div class="day-badges">
+        <span class="day-badge badge-red">🎤 碩一報告</span>
+        <span class="day-badge badge-gold">🏫 EdUHK</span>
+        <span class="day-badge badge-jade">🥂 研討會晚宴</span>
+        <span class="day-badge badge-outline">🎫 帶胸牌！</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="warn-box">🎫 <strong>晚宴重要提醒：</strong>出門前確認帶好研討會胸牌！研討會晚宴 Bafang Zhan 有提供接駁巴士，上車需出示胸牌。</div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot gold"></div>
+      <div class="tl-card teacher">
+        <div class="tl-time">07:50</div>
+        <div class="tl-title">🏨 大廳集合 <span class="v-tag v-teacher">老師同行</span></div>
+        <div class="tl-desc">全體準時集合，今天要前往 EdUHK（香港教育大學），交通時間較長</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot gold"></div>
+      <div class="tl-card teacher">
+        <div class="tl-time">08:00 – 09:00</div>
+        <div class="tl-title">☕ 早餐 — 老師同行 <span class="v-tag v-teacher">老師同行</span></div>
+        <div class="tl-desc">
+          今天前往 EdUHK，可選擇：<br>
+          🥐 <strong>飯店早餐</strong>（最省時，直接出發）<br>
+          🍞 <strong>沙田站附近便利店</strong>（7-11 / OK 便利店，車站旁）
+        </div>
+        <div class="tl-tip gold">💡 建議今天選飯店早餐或便利店解決，節省時間前往 EdUHK</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot navy"></div>
+      <div class="tl-card transport">
+        <div class="tl-time">09:00 – 09:50</div>
+        <div class="tl-title">🚇 前往 The Education University of Hong Kong</div>
+        <div class="transport-row">
+          <span class="transport-step">沙田站</span>
+          <span class="transport-arrow">➡️</span>
+          <span class="transport-step">東鐵綫</span>
+          <span class="transport-arrow">➡️</span>
+          <span class="transport-step">大學站</span>
+          <span class="transport-arrow">➡️</span>
+          <span class="transport-step">74K 巴士 / 校巴</span>
+          <span class="transport-arrow">➡️</span>
+          <span class="transport-step">EdUHK 校園</span>
+        </div>
+        <div class="tl-tip">📍 大學站出站後搭 74K 巴士前往 EdUHK，車程約 15 分鐘。或視活動安排搭研討會接駁車。</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot jade"></div>
+      <div class="tl-card">
+        <div class="tl-time">10:00 – 12:00</div>
+        <div class="tl-title">🏫 研討會上午場次 <span class="v-tag v-teacher">老師同行</span></div>
+        <div class="tl-desc">聆聽其他學者報告，做好筆記，碩一生最後確認報告內容</div>
+        <div class="tl-tip jade">💡 碩一生：利用此時再過一遍簡報，確認時間掌控</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot red"></div>
+      <div class="tl-card highlight">
+        <div class="tl-time">12:05 – 12:45</div>
+        <div class="tl-title">🎤 研討會報告 — 碩一生！ <span class="v-tag v-teacher">老師同行</span></div>
+        <div class="tl-desc">碩一生上台報告！全組為你們加油！💪</div>
+        <div class="tl-tip red">🔒 此時段為鎖定時段，絕對不安排任何衝突行程</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot gold"></div>
+      <div class="tl-card teacher">
+        <div class="tl-time">12:45 – 14:00</div>
+        <div class="tl-title">🍱 午餐 — EdUHK 校園內 <span class="v-tag v-teacher">老師同行</span></div>
+        <div class="tl-desc">
+          📍 EdUHK 校內餐廳或研討會提供午餐<br>
+          🥗 校園餐廳提供多種選擇，環境舒適<br>
+          享受完報告後的輕鬆午餐！
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot jade"></div>
+      <div class="tl-card">
+        <div class="tl-time">14:00 – 17:00</div>
+        <div class="tl-title">🌿 下午放鬆行程 <span class="v-tag v-student">學生版</span></div>
+        <div class="tl-desc">
+          選擇 1 🏫：<strong>EdUHK 校園散步</strong>（環境清幽，適合拍照留念）<br>
+          選擇 2 🚇：<strong>大埔墟逛逛</strong>（從大學站出發，傳統市集＋特色老街）<br>
+          選擇 3 🛍️：<strong>返回沙田，新城市廣場採購伴手禮</strong>
+        </div>
+        <div class="tl-tip jade">💡 晚上有晚宴，建議下午保留體力，不要走太遠</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot navy"></div>
+      <div class="tl-card transport">
+        <div class="tl-time">17:00 – 17:45</div>
+        <div class="tl-title">🚇 返回飯店 / 晚宴集合點</div>
+        <div class="transport-row">
+          <span class="transport-step">EdUHK / 大學站</span>
+          <span class="transport-arrow">➡️</span>
+          <span class="transport-step">東鐵綫</span>
+          <span class="transport-arrow">➡️</span>
+          <span class="transport-step">沙田站</span>
+          <span class="transport-arrow">➡️</span>
+          <span class="transport-step">Royal Park Hotel</span>
+        </div>
+        <div class="tl-tip">換上適合晚宴的服裝！記得帶胸牌 🎫</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot red"></div>
+      <div class="tl-card highlight">
+        <div class="tl-time">18:30</div>
+        <div class="tl-title">🚌 接駁巴士出發 → Bafang Zhan 晚宴 <span class="v-tag v-student">學生版（老師不參與）</span></div>
+        <div class="tl-desc">
+          🎫 上車前出示研討會胸牌（必要！）<br>
+          🥂 研討會晚宴，感謝所有報告者辛苦了！<br>
+          📍 Bafang Zhan（八方棧）— 研討會官方晚宴場地
+        </div>
+        <div class="tl-tip red">⚠️ 請務必帶胸牌！沒有胸牌可能無法搭乘接駁巴士或進入晚宴</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot red"></div>
+      <div class="tl-card">
+        <div class="tl-time">19:00 – 21:30</div>
+        <div class="tl-title">🥂 研討會晚宴 — Bafang Zhan <span class="v-tag v-student">學生版</span></div>
+        <div class="tl-desc">
+          享受豐盛晚宴，與其他學者交流！<br>
+          這是難得的學術交流機會，放鬆享受吧 🎊
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot navy"></div>
+      <div class="tl-card transport">
+        <div class="tl-time">21:30</div>
+        <div class="tl-title">🚌 接駁巴士返回 / 自行返回沙田</div>
+        <div class="tl-desc">搭乘晚宴接駁巴士或自行搭乘大眾運輸返回沙田飯店</div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- DAY 4 : 4/23 -->
+<!-- ============================================================ -->
+<section class="section" id="day423">
+  <div class="sec-title">✈️ Day 4</div>
+  <div class="sec-sub">4月23日（四）· 自由行 + 19:40 回程</div>
+
+  <div class="day-header">
+    <div class="day-num">04</div>
+    <div class="day-info">
+      <h3>最後一天！輕鬆逛，準時回家 🏠</h3>
+      <p>19:40 班機 · A41 安全搭車時間回推 · 輕鬆伴手禮行程</p>
+      <div class="day-badges">
+        <span class="day-badge badge-red">✈️ 19:40 起飛</span>
+        <span class="day-badge badge-gold">🚌 A41 班機</span>
+        <span class="day-badge badge-jade">🛍️ 最後補貨</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    ⏰ <strong>A41 搭車時間回推：</strong><br>
+    19:40 起飛 → 建議 <strong>17:40 前完成通關</strong> → <strong>17:00 前抵達機場</strong> → 建議 <strong>16:00 搭 A41</strong>（車程約 60 分鐘）<br>
+    ➡️ 最晚搭車時間：<strong>16:00 A41（沙田市中心站出發）</strong><br>
+    ⚠️ 含緩衝時間，遇塞車或行李等候約 30 分鐘緩衝。建議 15:45 從飯店出發前往巴士站。
+  </div>
+
+  <div class="route-tabs">
+    <button class="route-tab active" onclick="showRoute('d4teacher', this)">👨‍🏫 老師與師母同行版</button>
+    <button class="route-tab" onclick="showRoute('d4student', this)">🎒 學生自由版</button>
+  </div>
+
+  <div class="route-content active" id="route-d4teacher">
+    <div class="warn-box">👨‍🏫 老師與師母同行，節奏輕鬆，以舒適為主，避免長途移動</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot gold"></div>
+        <div class="tl-card teacher">
+          <div class="tl-time">07:50</div>
+          <div class="tl-title">🏨 大廳集合 <span class="v-tag v-teacher">師生全體</span></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot gold"></div>
+        <div class="tl-card teacher">
+          <div class="tl-time">08:00 – 09:00</div>
+          <div class="tl-title">☕ 最後一頓早餐 — 老師同行 <span class="v-tag v-teacher">老師同行</span></div>
+          <div class="tl-desc">
+            🥐 推薦：新城市廣場附近茶餐廳，或飯店早餐<br>
+            悠閒用餐，回顧這幾天的美好回憶！
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot jade"></div>
+        <div class="tl-card">
+          <div class="tl-time">09:30 – 11:30</div>
+          <div class="tl-title">🏞️ 城門河畔散步 / 沙田公園</div>
+          <div class="tl-desc">
+            輕鬆的早上散步，沙田公園環境優美，適合師母同行<br>
+            📸 拍拍團體照留念
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot jade"></div>
+        <div class="tl-card pudding">
+          <div class="tl-time">11:30 – 12:30</div>
+          <div class="tl-title">🍮 Hashtag B 蛋塔 — 最後機會！</div>
+          <div class="tl-desc">若蛋塔還沒買，今天早上是最後機會！詳見蛋塔攻略頁面</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot gold"></div>
+        <div class="tl-card teacher">
+          <div class="tl-time">12:30 – 14:00</div>
+          <div class="tl-title">🍱 午餐 — 師生最後一餐 <span class="v-tag v-teacher">老師同行</span></div>
+          <div class="tl-desc">
+            🍜 新城市廣場餐廳，輕鬆用餐<br>
+            這是這次旅程的最後一頓正式午餐，好好珍惜！🥹
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot jade"></div>
+        <div class="tl-card">
+          <div class="tl-time">14:00 – 15:30</div>
+          <div class="tl-title">🛍️ 伴手禮最終採購</div>
+          <div class="tl-desc">
+            新城市廣場伴手禮：<br>
+            🍫 美心月餅 / 西餅<br>
+            🧋 港式奶茶包（超市有售）<br>
+            🧧 香港特色小物<br>
+            💊 藥房：萬金油、跌打藥（香港特有）
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot red"></div>
+        <div class="tl-card highlight">
+          <div class="tl-time">15:30</div>
+          <div class="tl-title">🏨 回飯店取行李 + Check-out</div>
+          <div class="tl-desc">確認行李重量，把蛋塔好好保護打包 🍮</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot red"></div>
+        <div class="tl-card highlight">
+          <div class="tl-time">15:45</div>
+          <div class="tl-title">🚌 出發搭 Citybus A41 → 機場</div>
+          <div class="tl-tip red">⚠️ 最晚 16:00 上車！建議 15:45 就到巴士站候車</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot navy"></div>
+        <div class="tl-card transport">
+          <div class="tl-time">16:00 – 17:00</div>
+          <div class="tl-title">🚌 Citybus A41 沙田 → 機場（約 60 分鐘）</div>
+          <div class="transport-row">
+            <span class="transport-step">沙田市中心站</span>
+            <span class="transport-arrow">➡️</span>
+            <span class="transport-step">Citybus A41</span>
+            <span class="transport-arrow">➡️</span>
+            <span class="transport-step">香港國際機場</span>
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot red"></div>
+        <div class="tl-card">
+          <div class="tl-time">17:00 – 19:00</div>
+          <div class="tl-title">🛫 機場辦理登機 / 安檢 / 候機</div>
+          <div class="tl-desc">建議 17:00 前抵達，國際線建議提前 2.5 小時辦理登機</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot red"></div>
+        <div class="tl-card highlight">
+          <div class="tl-time">19:40</div>
+          <div class="tl-title">✈️ 起飛！香港再見 🇭🇰</div>
+          <div class="tl-desc">帶著滿滿的研究成果與美食記憶，回家囉！</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="route-content" id="route-d4student">
+    <div class="info-box">🎒 無老師版本：可自由安排，節奏較輕鬆但要注意 16:00 A41 截止搭車時間！</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot jade"></div>
+        <div class="tl-card">
+          <div class="tl-time">08:00 – 09:00</div>
+          <div class="tl-title">☕ 早餐（自由）</div>
+          <div class="tl-desc">茶餐廳 / 便利店 / 飯店，自己決定！</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot jade"></div>
+        <div class="tl-card pudding">
+          <div class="tl-time">09:30 – 11:00</div>
+          <div class="tl-title">🍮 蛋塔最後決戰 / 輕鬆逛街</div>
+          <div class="tl-desc">今天是蛋塔 backup 方案最後執行機會！或者輕鬆在沙田購物</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot jade"></div>
+        <div class="tl-card">
+          <div class="tl-time">11:00 – 13:00</div>
+          <div class="tl-title">🚇 小旅行（輕型）｜去大圍或馬鞍山走走</div>
+          <div class="tl-desc">
+            沿東鐵線隨便跳一站探索！不要走太遠<br>
+            🏪 大圍：壁畫街、地道小食<br>
+            🌊 馬鞍山：海濱公園景色優美
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot jade"></div>
+        <div class="tl-card">
+          <div class="tl-time">13:00 – 15:00</div>
+          <div class="tl-title">🍜 午餐 + 最後伴手禮採購</div>
+          <div class="tl-desc">新城市廣場午餐，超市買最後的零食、奶茶、伴手禮</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot red"></div>
+        <div class="tl-card highlight">
+          <div class="tl-time">15:30</div>
+          <div class="tl-title">🏨 飯店取行李 Check-out</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot red"></div>
+        <div class="tl-card highlight">
+          <div class="tl-time">15:45 – 16:00</div>
+          <div class="tl-title">🚌 最晚！搭 A41 出發機場</div>
+          <div class="tl-tip red">⛔ 超過 16:00 搭車有趕不上的風險！請務必準時！</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot red"></div>
+        <div class="tl-card">
+          <div class="tl-time">19:40</div>
+          <div class="tl-title">✈️ 起飛！掰掰香港 🇭🇰</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- 🍮 蛋塔攻略 -->
+<!-- ============================================================ -->
+<section class="section" id="pudding">
+  <div class="sec-title">🍮 蛋塔攻略</div>
+  <div class="sec-sub">Hashtag B 蛋塔 · 彈性規劃策略 · 三方案應對</div>
+
+  <div class="pudding-hero">
+    <h3>🍮 Hashtag B 蛋塔攻略</h3>
+    <p>Hashtag B（#b Bakery）是近年香港最熱門的烘焙品牌，以其葡式蛋撻聞名，酥皮層次分明、餡料細緻，常常大排長龍。本攻略提供三套方案，確保無論如何都能吃到！</p>
+  </div>
+
+  <div class="warn-box">
+    📍 <strong>分店資訊（請出發前確認最新地址）：</strong><br>
+    ・尖沙咀分店（建議首選）<br>
+    ・銅鑼灣分店<br>
+    ・各分店建議出發前 Google 確認最新營業時間與地點
+  </div>
+
+  <div class="pudding-plans">
+    <div class="pudding-plan main">
+      <div class="pudding-plan-badge">🍮 主方案（最推薦）</div>
+      <h4>4/21 下午 — 尖沙咀路線順路購買</h4>
+      <p>選擇路線A（尖沙咀文化散步）時，下午 16:00 前往尖沙咀 Hashtag B 分店</p>
+      <div class="pudding-info">
+        <div class="pudding-info-row">
+          <span class="pudding-info-label">🍮 購買時間</span>
+          <span class="pudding-info-val">4/21 下午 16:00–17:00</span>
+        </div>
+        <div class="pudding-info-row">
+          <span class="pudding-info-label">⏳ 排隊預估</span>
+          <span class="pudding-info-val">週間下午約 20–40 分鐘</span>
+        </div>
+        <div class="pudding-info-row">
+          <span class="pudding-info-label">📍 地點</span>
+          <span class="pudding-info-val">尖沙咀分店（文化路線內）</span>
+        </div>
+        <div class="pudding-info-row">
+          <span class="pudding-info-label">✅ 優點</span>
+          <span class="pudding-info-val">當天下午吃最新鮮！不用專程跑一趟</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pudding-plan alt">
+      <div class="pudding-plan-badge">🔁 替代方案</div>
+      <h4>4/22 午後 — 返回沙田途中購買</h4>
+      <p>若 4/21 排隊太長或太晚，改到 4/22 下午 EdUHK 結束後，途徑旺角或尖沙咀順路買</p>
+      <div class="pudding-info">
+        <div class="pudding-info-row">
+          <span class="pudding-info-label">🍮 購買時間</span>
+          <span class="pudding-info-val">4/22 約 14:30–16:00</span>
+        </div>
+        <div class="pudding-info-row">
+          <span class="pudding-info-label">⏳ 排隊預估</span>
+          <span class="pudding-info-val">平日約 15–30 分鐘</span>
+        </div>
+        <div class="pudding-info-row">
+          <span class="pudding-info-label">⚠️ 注意</span>
+          <span class="pudding-info-val">晚上有晚宴，需預留時間換裝回飯店</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pudding-plan backup">
+      <div class="pudding-plan-badge">🆘 備案方案</div>
+      <h4>4/23 早上 — 沙田附近或出發前</h4>
+      <p>若前兩天都未購買，4/23 早上為最後機會，需視分店位置決定是否值得特地前往</p>
+      <div class="pudding-info">
+        <div class="pudding-info-row">
+          <span class="pudding-info-label">🍮 購買時間</span>
+          <span class="pudding-info-val">4/23 早上 09:30–11:00</span>
+        </div>
+        <div class="pudding-info-row">
+          <span class="pudding-info-label">⏳ 排隊預估</span>
+          <span class="pudding-info-val">早上開店約 10–20 分鐘</span>
+        </div>
+        <div class="pudding-info-row">
+          <span class="pudding-info-label">⚠️ 限制</span>
+          <span class="pudding-info-val">需在 15:30 前返回飯店取行李</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-section mt24">
+    <div class="alt-title">🔁 備案轉換條件</div>
+    <div class="alt-grid">
+      <div class="alt-card">
+        <div class="alt-card-title">若 4/21 排隊超過 40 分鐘</div>
+        <div class="alt-card-body">→ 放棄當日，改為 4/22 下午路線，記錄分店位置備用</div>
+      </div>
+      <div class="alt-card">
+        <div class="alt-card-title">若 4/22 時間不夠（晚宴壓力）</div>
+        <div class="alt-card-body">→ 轉換到 4/23 早上備案，確認當天開店時間（通常 10:00 開始）</div>
+      </div>
+      <div class="alt-card">
+        <div class="alt-card-title">若三天都未能購買</div>
+        <div class="alt-card-body">→ 機場 #b 有時有特快通道可購買，或在香港超市購買其他品牌葡撻作替代</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box mt24">
+    🍮 <strong>小貼士：</strong>蛋塔買回後最佳食用時間是 2–3 小時內，若要帶回台灣作伴手禮，建議 4/23 早上買，當天上飛機前食用或帶上機（一般允許攜帶烘焙品上機）。
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 👨‍🏫 老師懶人包 -->
+<!-- ============================================================ -->
+<section class="section" id="teacher">
+  <div class="sec-title">👨‍🏫 老師懶人包</div>
+  <div class="sec-sub">每日重點 · 需要老師的時段一覽</div>
+
+  <div class="info-box">
+    📌 <strong>老師行程原則：</strong>每天早餐一定同行。其他時段依各天情況不同，詳見下方卡片。
+  </div>
+
+  <div class="teacher-grid">
+
+    <div class="teacher-day-card">
+      <div class="teacher-day-header">
+        <div class="d-num">DAY 01 · 4/20</div>
+        <h4>✈️ 抵達日</h4>
+      </div>
+      <div class="teacher-day-body">
+        <div class="teacher-item">
+          <div class="teacher-item-time">12:05</div>
+          <div class="teacher-item-content"><strong>抵達香港</strong><span class="must-tag">必</span><br>機場集合，搭 A41</div>
+        </div>
+        <div class="teacher-item">
+          <div class="teacher-item-time">14:00</div>
+          <div class="teacher-item-content"><strong>飯店行李寄放</strong><span class="must-tag">必</span><br>Royal Park Hotel</div>
+        </div>
+        <div class="teacher-item">
+          <div class="teacher-item-time">14:15</div>
+          <div class="teacher-item-content"><strong>New Town Plaza 午餐</strong><span class="must-tag">必</span></div>
+        </div>
+        <div class="teacher-item">
+          <div class="teacher-item-time">15:00</div>
+          <div class="teacher-item-content"><strong>正式入住</strong><span class="must-tag">必</span><br>確認明日集合時間</div>
+        </div>
+        <div class="teacher-item">
+          <div class="teacher-item-time">18:30</div>
+          <div class="teacher-item-content"><strong>師生晚餐</strong><span class="must-tag">必</span><br>商場聚餐，老師主導點菜</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="teacher-day-card">
+      <div class="teacher-day-header">
+        <div class="d-num">DAY 02 · 4/21</div>
+        <h4>🎤 碩二報告日</h4>
+      </div>
+      <div class="teacher-day-body">
+        <div class="teacher-item">
+          <div class="teacher-item-time">08:00</div>
+          <div class="teacher-item-content"><strong>早餐同行</strong><span class="must-tag">必</span><br>07:50 大廳集合</div>
+        </div>
+        <div class="teacher-item">
+          <div class="teacher-item-time">10:00</div>
+          <div class="teacher-item-content"><strong>研討會報告全程陪同</strong><span class="must-tag">必</span><br>10:00–12:10</div>
+        </div>
+        <div class="teacher-item">
+          <div class="teacher-item-time">12:10</div>
+          <div class="teacher-item-content"><strong>午餐後老師離開</strong><br>老師前往掃墓<span class="opt-tag">學生自由行</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="teacher-day-card">
+      <div class="teacher-day-header">
+        <div class="d-num">DAY 03 · 4/22</div>
+        <h4>🏫 碩一報告日</h4>
+      </div>
+      <div class="teacher-day-body">
+        <div class="teacher-item">
+          <div class="teacher-item-time">08:00</div>
+          <div class="teacher-item-content"><strong>早餐同行</strong><span class="must-tag">必</span><br>07:50 大廳集合</div>
+        </div>
+        <div class="teacher-item">
+          <div class="teacher-item-time">09:00</div>
+          <div class="teacher-item-content"><strong>前往 EdUHK 同行</strong><span class="must-tag">必</span></div>
+        </div>
+        <div class="teacher-item">
+          <div class="teacher-item-time">12:05</div>
+          <div class="teacher-item-content"><strong>碩一報告全程陪同</strong><span class="must-tag">必</span><br>12:05–12:45</div>
+        </div>
+        <div class="teacher-item">
+          <div class="teacher-item-time">12:45</div>
+          <div class="teacher-item-content"><strong>午餐同行</strong><span class="must-tag">必</span></div>
+        </div>
+        <div class="teacher-item">
+          <div class="teacher-item-time">18:30</div>
+          <div class="teacher-item-content"><strong>晚宴老師不參與</strong><br>學生自行前往 Bafang Zhan<span class="opt-tag">帶胸牌！</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="teacher-day-card">
+      <div class="teacher-day-header">
+        <div class="d-num">DAY 04 · 4/23</div>
+        <h4>✈️ 回程日</h4>
+      </div>
+      <div class="teacher-day-body">
+        <div class="teacher-item">
+          <div class="teacher-item-time">08:00</div>
+          <div class="teacher-item-content"><strong>早餐同行（師母同行）</strong><span class="must-tag">必</span></div>
+        </div>
+        <div class="teacher-item">
+          <div class="teacher-item-time">09:30</div>
+          <div class="teacher-item-content"><strong>城門河散步（師母友善）</strong><span class="opt-tag">可選</span></div>
+        </div>
+        <div class="teacher-item">
+          <div class="teacher-item-time">12:30</div>
+          <div class="teacher-item-content"><strong>師生最後午餐</strong><span class="must-tag">必</span></div>
+        </div>
+        <div class="teacher-item">
+          <div class="teacher-item-time">15:45</div>
+          <div class="teacher-item-content"><strong>搭 A41 返機場</strong><span class="must-tag">必</span><br>最晚 16:00 上車！</div>
+        </div>
+        <div class="teacher-item">
+          <div class="teacher-item-time">19:40</div>
+          <div class="teacher-item-content"><strong>班機起飛</strong><span class="must-tag">必</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 重要提醒 -->
+  <div class="label-row">⚠️ 全程重要提醒</div>
+  <div class="alt-grid">
+    <div class="alt-card">
+      <div class="alt-card-title">🚌 交通規則</div>
+      <div class="alt-card-body">機場往返一律 Citybus A41。市區移動以東鐵綫為主。每次出發前確認八達通餘額。</div>
+    </div>
+    <div class="alt-card">
+      <div class="alt-card-title">🎫 胸牌提醒</div>
+      <div class="alt-card-body">4/22 晚宴務必攜帶研討會胸牌！搭乘接駁巴士前需出示，沒帶可能無法入場。</div>
+    </div>
+    <div class="alt-card">
+      <div class="alt-card-title">⏰ 報告時段</div>
+      <div class="alt-card-body">4/21 碩二：10:00–12:10 / 4/22 碩一：12:05–12:45 為鎖定時段，絕對不衝突。</div>
+    </div>
+    <div class="alt-card">
+      <div class="alt-card-title">✈️ 回程時間</div>
+      <div class="alt-card-body">19:40 班機，最晚 16:00 搭 A41，15:45 要在巴士站候車，15:30 從飯店出發。</div>
+    </div>
+  </div>
+
+</section>
+
+<footer style="text-align:center;padding:40px 16px;color:var(--text-soft);font-size:13px;border-top:1px solid var(--border);margin-top:20px;">
+  🇭🇰 香港研討會之旅 2026 · 4/20–4/23 · 一起加油！💪<br>
+  <span style="font-family:var(--font-mono);font-size:11px;opacity:0.5;">Built with ❤️ for the research team</span>
+</footer>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  const targetSection = document.getElementById(id);
+  targetSection.classList.add('active');
+  const btns = document.querySelectorAll('.nav-btn');
+  const map = { day420:0, day421:1, day422:2, day423:3, pudding:4, teacher:5 };
+  const activeBtn = btns[map[id]];
+  activeBtn.classList.add('active');
+  
+  // Scroll nav to center active item on mobile
+  const navInner = document.querySelector('.nav-inner');
+  const scrollPos = activeBtn.offsetLeft - (navInner.offsetWidth / 2) + (activeBtn.offsetWidth / 2);
+  navInner.scrollTo({ left: scrollPos, behavior: 'smooth' });
+
+  window.scrollTo({ top: document.querySelector('.nav').offsetTop - 10, behavior: 'smooth' });
+}
+
+// Show/Hide Back to Top button
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('backToTop');
+  if (window.scrollY > 500) {
+    btn.classList.add('show');
+  } else {
+    btn.classList.remove('show');
+  }
+});
+
+function showRoute(id, btn) {
+  const parent = btn.closest('.section') || document;
+  const tabGroups = btn.parentElement.querySelectorAll('.route-tab');
+  const contentGroup = btn.closest('.section') || document;
+  tabGroups.forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  // find all sibling route-content
+  const allContents = btn.parentElement.parentElement.querySelectorAll('.route-content');
+  allContents.forEach(c => c.classList.remove('active'));
+  const target = document.getElementById('route-' + id);
+  if (target) target.classList.add('active');
+}
+</script>
+</body>
+</html>
