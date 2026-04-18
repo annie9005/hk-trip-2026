@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
@@ -637,6 +637,22 @@ body {
 .route-content { display: none; }
 .route-content.active { display: block; }
 
+/* ===== IMAGE STYLES ===== */
+.card-img-wrap {
+  margin: 10px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+.card-img-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s;
+}
+.card-img-wrap:hover img { transform: scale(1.05); }
+
 /* ===== UTILS ===== */
 .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 @media (max-width: 600px) { .grid2 { grid-template-columns: 1fr; } }
@@ -861,7 +877,10 @@ body {
         <div class="tl-time">14:00 – 15:30</div>
         <div class="tl-title">🐶 史努比開心世界 (Snoopy's World)</div>
         <div class="tl-desc">
-          新城市廣場 3 樓平台，超可愛史努比主題區，拍爆最後的底片📸<br>
+          新城市廣場 3 樓平台，超可愛史努比主題區📸<br>
+          <div class="card-img-wrap">
+            <img src="https://meee.com.tw/RZu3fqP" alt="史努比開心世界實景">
+          </div>
           🛶 <strong>獨木舟探趣：</strong>開放時間 12:00-18:00，推薦體驗！<br>
           🛍️ <strong>備案：</strong>不想進公園的人，也可以在新城市廣場商場內自由逛街購物
         </div>
